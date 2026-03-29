@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://x-tire.pl/sitemap.xml
+
+# Blokuj pliki techniczne
+Disallow: /assets/
+Disallow: /*.css$
+Disallow: /*.js$
