@@ -1,0 +1,8 @@
+www.x-tire.pl {
+    redir https://x-tire.pl{uri} permanent
+}
+
+x-tire.pl {
+    encode gzip zstd
+    reverse_proxy web:80
+}

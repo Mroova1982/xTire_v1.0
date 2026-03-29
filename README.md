@@ -20,6 +20,36 @@ Statyczna strona sklepu X-Tire zbudowana na HTML + CSS + JavaScript z integracj�
 
 https://mroova1982.github.io/xTirev_1.0/
 
+## Wdrożenie produkcyjne (Docker + HTTPS)
+
+Projekt zawiera gotową konfigurację produkcyjną dla domeny `x-tire.pl` oraz `www.x-tire.pl`:
+
+- `docker-compose.prod.yml` — kontenery `web` + `caddy`
+- `Caddyfile` — automatyczny TLS (Let's Encrypt) i przekierowanie `www -> apex`
+
+### Wymagania serwera
+
+1. Docker + Docker Compose
+2. Publiczny adres IP serwera
+3. Rekordy DNS ustawione na serwer:
+   - `x-tire.pl` -> A -> `<IP_SERWERA>`
+   - `www.x-tire.pl` -> A -> `<IP_SERWERA>`
+4. Otwarte porty: `80` i `443`
+
+### Start produkcyjny
+
+```bash
+docker compose -f docker-compose.prod.yml up -d --build
+```
+
+### Przydatne komendy
+
+```bash
+docker compose -f docker-compose.prod.yml ps
+docker compose -f docker-compose.prod.yml logs -f
+docker compose -f docker-compose.prod.yml down
+```
+
 ## Produkty
 
 | ID | Nazwa | Cena |

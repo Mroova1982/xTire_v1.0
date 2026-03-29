@@ -1,0 +1,9 @@
+services:
+  xtire:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: xtire-web
+    ports:
+      - "8080:80"
+    restart: unless-stopped
