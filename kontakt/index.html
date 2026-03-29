@@ -1,16 +1,704 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>X-Tire — Kontakt</title>
-  <meta http-equiv="refresh" content="0; url=../">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt — X-Tire | Wkładki rowerowe MTB</title>
+  <meta name="description" content="Skontaktuj się z X-Tire. Pytania o produkty, zamówienia, współpracę — odpiszemy w ciągu 24 godzin." />
+  <link rel="canonical" href="https://x-tire.pl/kontakt/" />
   <meta name="robots" content="noindex, nofollow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kontakt — X-Tire" />
+  <meta property="og:description" content="Skontaktuj się z X-Tire. Pytania o produkty, zamówienia, współpracę." />
+  <meta property="og:url" content="https://x-tire.pl/kontakt/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --lime: #C8FF00; --dark: #0a0a0a; --dark2: #111; --dark3: #1a1a1a;
+      --dark4: #222; --gray: #888; --gray-light: #ccc; --white: #fff;
+      --font-head: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+      --nav-h: 80px; --radius: 8px; --transition: 0.25s ease;
+      --max-w: 1280px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--dark); color: var(--white); font-family: var(--font-body); overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ── NAVBAR ─────────────────────────────────────────────── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: var(--nav-h); background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; padding: 0 40px; gap: 32px;
+    }
+    .navbar-logo { flex-shrink: 0; }
+    .navbar-logo img { height: 64px; filter: invert(1) brightness(1.2); }
+    .navbar-nav { display: flex; align-items: center; gap: 4px; flex: 1; }
+    .navbar-nav a {
+      font-family: var(--font-head); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-light);
+      padding: 8px 12px; border-radius: 4px;
+      transition: color var(--transition), background var(--transition);
+    }
+    .navbar-nav a:hover, .navbar-nav a.active { color: var(--lime); background: rgba(200,255,0,0.1); }
+    .navbar-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .lang-switcher { display: flex; gap: 2px; background: rgba(255,255,255,0.06); border-radius: 4px; padding: 2px; }
+    .lang-btn { font-family: var(--font-head); font-size: 12px; font-weight: 700; color: var(--gray); padding: 4px 10px; border-radius: 3px; cursor: pointer; border: none; background: none; transition: all var(--transition); }
+    .lang-btn.active { background: var(--lime); color: var(--dark); }
+    .btn-buy { font-family: var(--font-head); font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; background: var(--lime); color: var(--dark); padding: 10px 20px; border-radius: 4px; transition: all var(--transition); }
+    .btn-buy:hover { background: #d4ff1a; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; border: none; background: none; margin-left: auto; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(10,10,10,0.98); flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--font-head); font-size: 28px; font-weight: 800; text-transform: uppercase; color: var(--white); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--lime); }
+    .mobile-nav-close { position: absolute; top: 24px; right: 24px; font-size: 32px; cursor: pointer; border: none; background: none; color: var(--white); }
+    .mobile-lang { display: flex; gap: 12px; margin-top: 12px; }
+
+    /* ── PAGE HERO ───────────────────────────────────────────── */
+    .page-hero {
+      padding-top: calc(var(--nav-h) + 80px);
+      padding-bottom: 80px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(200,255,0,0.04) 0%, transparent 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .page-hero-label {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--lime);
+      margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .page-hero-label::before, .page-hero-label::after { content: ''; display: block; width: 32px; height: 1px; background: var(--lime); }
+    .page-hero h1 {
+      font-family: var(--font-head); font-size: clamp(48px, 8vw, 96px);
+      font-weight: 900; text-transform: uppercase; line-height: 0.9;
+      letter-spacing: -0.02em; color: var(--white);
+    }
+    .page-hero h1 span { color: var(--lime); }
+    .page-hero p { font-size: 18px; color: var(--gray); margin-top: 20px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+    /* ── CONTACT LAYOUT ─────────────────────────────────────── */
+    .contact-section {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 80px 40px 120px;
+      display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: start;
+    }
+
+    /* ── FORM ───────────────────────────────────────────────── */
+    .contact-form-wrap h2 {
+      font-family: var(--font-head); font-size: clamp(28px, 4vw, 40px);
+      font-weight: 900; text-transform: uppercase; color: var(--white);
+      margin-bottom: 8px; line-height: 1;
+    }
+    .contact-form-wrap h2 span { color: var(--lime); }
+    .contact-form-wrap .form-subtitle {
+      font-size: 15px; color: var(--gray); margin-bottom: 36px; line-height: 1.6;
+    }
+
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray);
+    }
+    .form-group label span { color: var(--lime); margin-left: 2px; }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--dark3); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius); padding: 14px 16px;
+      font-family: var(--font-body); font-size: 15px; color: var(--white);
+      transition: border-color var(--transition), background var(--transition);
+      outline: none; width: 100%;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--gray); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--lime);
+      background: rgba(200,255,0,0.03);
+    }
+    .form-group input.error,
+    .form-group select.error,
+    .form-group textarea.error { border-color: #ff4444; }
+    .form-group .error-msg {
+      font-size: 12px; color: #ff6666; display: none;
+    }
+    .form-group.has-error .error-msg { display: block; }
+
+    .form-group select { cursor: pointer; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center;
+      padding-right: 40px;
+    }
+    .form-group select option { background: var(--dark3); color: var(--white); }
+
+    .form-group textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+
+    .form-consent {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 13px; color: var(--gray); line-height: 1.6; cursor: pointer;
+    }
+    .form-consent input[type="checkbox"] {
+      width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+      accent-color: var(--lime); cursor: pointer;
+    }
+    .form-consent a { color: var(--lime); }
+    .form-consent a:hover { text-decoration: underline; }
+
+    .btn-submit {
+      font-family: var(--font-head); font-size: 15px; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--lime); color: var(--dark);
+      padding: 16px 40px; border-radius: var(--radius);
+      border: none; cursor: pointer; transition: all var(--transition);
+      display: flex; align-items: center; gap: 10px; align-self: flex-start;
+    }
+    .btn-submit:hover { background: #d4ff1a; transform: translateY(-1px); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .btn-submit .spinner {
+      width: 16px; height: 16px; border: 2px solid rgba(0,0,0,0.3);
+      border-top-color: var(--dark); border-radius: 50%;
+      animation: spin 0.7s linear infinite; display: none;
+    }
+    .btn-submit.loading .spinner { display: block; }
+    .btn-submit.loading .btn-text { opacity: 0.6; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* SUCCESS / ERROR STATES */
+    .form-feedback {
+      display: none; padding: 20px 24px; border-radius: var(--radius);
+      font-size: 15px; line-height: 1.6;
+    }
+    .form-feedback.success {
+      background: rgba(200,255,0,0.08); border: 1px solid rgba(200,255,0,0.25);
+      color: var(--lime);
+    }
+    .form-feedback.error-state {
+      background: rgba(255,68,68,0.08); border: 1px solid rgba(255,68,68,0.25);
+      color: #ff8888;
+    }
+    .form-feedback.visible { display: flex; align-items: flex-start; gap: 12px; }
+    .form-feedback .fb-icon { font-size: 20px; flex-shrink: 0; }
+
+    /* ── SIDEBAR ─────────────────────────────────────────────── */
+    .contact-sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+    .info-card {
+      background: var(--dark3); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); padding: 24px 24px;
+      transition: border-color var(--transition);
+    }
+    .info-card:hover { border-color: rgba(200,255,0,0.2); }
+
+    .info-card-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .info-card-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: rgba(200,255,0,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .info-card-title {
+      font-family: var(--font-head); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--lime);
+    }
+
+    .info-card p { font-size: 14px; color: var(--gray-light); line-height: 1.7; }
+    .info-card a { color: var(--lime); transition: opacity var(--transition); }
+    .info-card a:hover { opacity: 0.8; text-decoration: underline; }
+    .info-card strong { color: var(--white); font-weight: 600; }
+
+    .response-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(200,255,0,0.1); border: 1px solid rgba(200,255,0,0.2);
+      border-radius: 20px; padding: 4px 12px; margin-top: 10px;
+      font-size: 12px; font-weight: 600; color: var(--lime);
+    }
+    .response-badge::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--lime); animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+    }
+
+    /* MAP */
+    .map-card {
+      background: var(--dark3); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .map-card iframe {
+      width: 100%; height: 220px; display: block; border: none;
+      filter: grayscale(1) invert(1) contrast(0.8) brightness(0.7);
+    }
+    .map-card-footer {
+      padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;
+      gap: 8px;
+    }
+    .map-card-footer p { font-size: 13px; color: var(--gray); }
+    .map-card-footer a {
+      font-family: var(--font-head); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--lime); white-space: nowrap; flex-shrink: 0;
+    }
+    .map-card-footer a:hover { text-decoration: underline; }
+
+    /* TOPICS */
+    .topics-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px;
+    }
+    .topic-chip {
+      background: var(--dark4); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px; padding: 10px 14px;
+      font-size: 13px; color: var(--gray-light); cursor: pointer;
+      transition: all var(--transition); text-align: center;
+    }
+    .topic-chip:hover, .topic-chip.selected {
+      background: rgba(200,255,0,0.08); border-color: rgba(200,255,0,0.3);
+      color: var(--lime);
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    .footer { background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.06); padding: 60px 40px 40px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+    .footer-brand p { font-size: 14px; color: var(--gray); line-height: 1.7; margin-top: 16px; max-width: 280px; }
+    .footer-col h4 { font-family: var(--font-head); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { font-size: 14px; color: var(--gray); transition: color var(--transition); }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom { max-width: var(--max-w); margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-bottom p { font-size: 13px; color: var(--gray); }
+    .footer-bottom a { color: var(--gray); transition: color var(--transition); }
+    .footer-bottom a:hover { color: var(--lime); }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .contact-section { grid-template-columns: 1fr; gap: 48px; padding: 60px 40px 80px; }
+      .contact-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .map-card { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      .navbar { padding: 0 20px; }
+      .navbar-nav, .navbar-actions { display: none; }
+      .hamburger { display: flex; }
+      .contact-section { padding: 60px 20px 80px; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-sidebar { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .topics-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
-  <p>Przekierowanie...</p>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="/" class="navbar-logo">
+      <img src="/assets/xtire-logo.svg" alt="X-Tire logo" />
+    </a>
+    <div class="navbar-nav">
+      <a href="/">Strona główna</a>
+      <a href="/sklep/">Sklep</a>
+      <a href="/technologia/">Technologia</a>
+      <a href="/aktualnosci/">Aktualności</a>
+      <a href="/kontakt/" class="active">Kontakt</a>
+    </div>
+    <div class="navbar-actions">
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-pl" onclick="setLang('pl')">PL</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="/sklep/" class="btn-buy">Kup teraz</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true">
+    <button class="mobile-nav-close" id="mobileClose" aria-label="Zamknij menu">✕</button>
+    <a href="/">Strona główna</a>
+    <a href="/sklep/">Sklep</a>
+    <a href="/technologia/">Technologia</a>
+    <a href="/aktualnosci/">Aktualności</a>
+    <a href="/kontakt/">Kontakt</a>
+    <div class="mobile-lang">
+      <button class="lang-btn active" onclick="setLang('pl')">PL</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-label">Napisz do nas</div>
+    <h1>Masz <span>pytanie?</span></h1>
+    <p>Odpowiadamy w ciągu 24 godzin w dni robocze. Chętnie pomożemy dobrać produkt, odpowiemy na pytania techniczne lub omówimy współpracę.</p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+
+    <!-- FORM -->
+    <div class="contact-form-wrap">
+      <h2>Wyślij <span>wiadomość</span></h2>
+      <p class="form-subtitle">Wypełnij formularz, a my skontaktujemy się z Tobą tak szybko, jak to możliwe.</p>
+
+      <!-- SUCCESS -->
+      <div class="form-feedback success" id="feedbackSuccess">
+        <span class="fb-icon">✓</span>
+        <div>
+          <strong>Wiadomość wysłana!</strong><br />
+          Dziękujemy za kontakt. Odpiszemy na podany adres e-mail w ciągu 24 godzin roboczych.
+        </div>
+      </div>
+
+      <!-- ERROR -->
+      <div class="form-feedback error-state" id="feedbackError">
+        <span class="fb-icon">!</span>
+        <div>
+          <strong>Coś poszło nie tak.</strong><br />
+          Spróbuj ponownie lub napisz bezpośrednio na <a href="mailto:kontakt@x-tire.pl">kontakt@x-tire.pl</a>.
+        </div>
+      </div>
+
+      <!--
+        FORMSPREE: Zastąp "YOUR_FORM_ID" swoim ID z formspree.io
+        Kroki: 1) Zarejestruj się na formspree.io  2) Utwórz nowy formularz
+               3) Skopiuj ID (np. xpwzgkjb)  4) Wklej poniżej: action="https://formspree.io/f/YOUR_FORM_ID"
+      -->
+      <form
+        class="contact-form"
+        id="contactForm"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        novalidate
+      >
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <!-- Przekierowanie po sukcesie (Formspree fallback) -->
+        <input type="hidden" name="_next" value="https://x-tire.pl/kontakt/?wyslano=1" />
+        <input type="hidden" name="_subject" value="Nowa wiadomość z formularza kontaktowego X-Tire" />
+
+        <div class="form-row">
+          <div class="form-group" id="grp-name">
+            <label for="name">Imię i nazwisko <span>*</span></label>
+            <input
+              type="text" id="name" name="name"
+              placeholder="Jan Kowalski"
+              autocomplete="name" required
+            />
+            <span class="error-msg">Podaj imię i nazwisko.</span>
+          </div>
+          <div class="form-group" id="grp-email">
+            <label for="email">Adres e-mail <span>*</span></label>
+            <input
+              type="email" id="email" name="email"
+              placeholder="jan@przykład.pl"
+              autocomplete="email" required
+            />
+            <span class="error-msg">Podaj poprawny adres e-mail.</span>
+          </div>
+        </div>
+
+        <div class="form-group" id="grp-topic">
+          <label for="topic">Temat wiadomości <span>*</span></label>
+          <select id="topic" name="topic" required>
+            <option value="" disabled selected>Wybierz temat...</option>
+            <option value="Pytanie o produkt">Pytanie o produkt</option>
+            <option value="Pomoc w doborze rozmiaru">Pomoc w doborze rozmiaru</option>
+            <option value="Zamówienie i dostawa">Zamówienie i dostawa</option>
+            <option value="Reklamacja / zwrot">Reklamacja / zwrot</option>
+            <option value="Współpraca / dealerzy">Współpraca / dealerzy</option>
+            <option value="Prasa i media">Prasa i media</option>
+            <option value="Inne">Inne</option>
+          </select>
+          <span class="error-msg">Wybierz temat wiadomości.</span>
+        </div>
+
+        <div class="form-group" id="grp-message">
+          <label for="message">Wiadomość <span>*</span></label>
+          <textarea
+            id="message" name="message"
+            placeholder="Opisz swoje pytanie lub sprawę jak najdokładniej — pomoże nam to szybciej odpowiedzieć..."
+            required minlength="20"
+          ></textarea>
+          <span class="error-msg">Wiadomość musi mieć co najmniej 20 znaków.</span>
+        </div>
+
+        <label class="form-consent" id="grp-consent">
+          <input type="checkbox" id="consent" name="consent" required />
+          <span>
+            Wyrażam zgodę na przetwarzanie moich danych osobowych przez 'Moronet' – Oprogramowanie Użytkowe Tomasz Mrowiec w celu obsługi niniejszego zapytania, zgodnie z
+            <a href="/polityka-prywatnosci/" target="_blank">Polityką Prywatności</a>. <span style="color:var(--lime)">*</span>
+          </span>
+        </label>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <div class="spinner"></div>
+          <span class="btn-text">Wyślij wiadomość</span>
+          <span>→</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="contact-sidebar">
+
+      <!-- EMAIL -->
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-card-icon">✉</div>
+          <div class="info-card-title">E-mail</div>
+        </div>
+        <p>
+          <a href="mailto:kontakt@x-tire.pl">kontakt@x-tire.pl</a>
+        </p>
+        <div class="response-badge">Odpowiadamy do 24h</div>
+      </div>
+
+      <!-- DANE FIRMY -->
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-card-icon">🏢</div>
+          <div class="info-card-title">Dane firmy</div>
+        </div>
+        <p>
+          <strong>'Moronet'</strong><br />
+          Oprogramowanie Użytkowe Tomasz Mrowiec<br />
+          ul. Lubczykowa 10<br />
+          81-589 Gdynia<br /><br />
+          NIP: 5862100044<br />
+          REGON: 220498751
+        </p>
+      </div>
+
+      <!-- GODZINY -->
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-card-icon">🕐</div>
+          <div class="info-card-title">Godziny obsługi</div>
+        </div>
+        <p>
+          <strong>Pon – Pt:</strong> 9:00 – 17:00<br />
+          <strong>Sob – Nd:</strong> Zamknięte<br /><br />
+          Zamówienia możesz składać 24/7 przez sklep internetowy.
+        </p>
+      </div>
+
+      <!-- MAPA -->
+      <div class="map-card">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=18.5200%2C54.4900%2C18.5600%2C54.5200&layer=mapnik&marker=54.5050%2C18.5400"
+          title="Lokalizacja X-Tire — Gdynia"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+        <div class="map-card-footer">
+          <p>ul. Lubczykowa 10, Gdynia</p>
+          <a href="https://www.openstreetmap.org/?mlat=54.505&mlon=18.540#map=15/54.505/18.540" target="_blank" rel="noopener">
+            Otwórz mapę →
+          </a>
+        </div>
+      </div>
+
+    </aside>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="/assets/xtire-logo.svg" alt="X-Tire" style="height:48px;filter:invert(1) brightness(1.2);" />
+        <p>Profesjonalne wkładki rowerowe dla MTB, Enduro i Gravel. Polska produkcja, sprawdzona technologia.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sklep</h4>
+        <ul>
+          <li><a href="/sklep/">Wszystkie produkty</a></li>
+          <li><a href="/sklep/#mtb">MTB / Enduro</a></li>
+          <li><a href="/sklep/#gravel">Gravel / CX</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informacje</h4>
+        <ul>
+          <li><a href="/technologia/">Technologia</a></li>
+          <li><a href="/aktualnosci/">Aktualności</a></li>
+          <li><a href="/kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Prawne</h4>
+        <ul>
+          <li><a href="/polityka-prywatnosci/">Polityka prywatności</a></li>
+          <li><a href="/regulamin/">Regulamin sklepu</a></li>
+          <li><a href="/zwroty/">Zwroty i reklamacje</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 'Moronet' – Oprogramowanie Użytkowe Tomasz Mrowiec. Wszelkie prawa zastrzeżone.</p>
+      <p>
+        <a href="/polityka-prywatnosci/">Polityka prywatności</a> &nbsp;|&nbsp;
+        <a href="/regulamin/">Regulamin</a>
+      </p>
+    </div>
+  </footer>
+
   <!-- Cookie Consent -->
   <script src="/assets/cookie-consent.js"></script>
+
+  <script>
+    // ── Mobile nav ────────────────────────────────────────────
+    document.getElementById('hamburger').addEventListener('click', function () {
+      document.getElementById('mobileNav').classList.add('open');
+      this.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    });
+    document.getElementById('mobileClose').addEventListener('click', function () {
+      document.getElementById('mobileNav').classList.remove('open');
+      document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+
+    // ── Language switcher ─────────────────────────────────────
+    function setLang(lang) {
+      localStorage.setItem('xtire_lang', lang);
+      document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+      });
+    }
+    (function () {
+      var saved = localStorage.getItem('xtire_lang') || 'pl';
+      document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.classList.toggle('active', btn.textContent === saved.toUpperCase());
+      });
+    })();
+
+    // ── Pokaż sukces jeśli URL zawiera ?wyslano=1 (Formspree fallback) ──
+    if (window.location.search.includes('wyslano=1')) {
+      document.getElementById('feedbackSuccess').classList.add('visible');
+      document.getElementById('contactForm').style.display = 'none';
+    }
+
+    // ── Walidacja i AJAX submit ───────────────────────────────
+    var form       = document.getElementById('contactForm');
+    var submitBtn  = document.getElementById('submitBtn');
+    var successBox = document.getElementById('feedbackSuccess');
+    var errorBox   = document.getElementById('feedbackError');
+
+    function validateField(id, condition) {
+      var grp = document.getElementById('grp-' + id);
+      var el  = document.getElementById(id);
+      if (!grp || !el) return condition;
+      if (!condition) {
+        grp.classList.add('has-error');
+        el.classList.add('error');
+      } else {
+        grp.classList.remove('has-error');
+        el.classList.remove('error');
+      }
+      return condition;
+    }
+
+    function validateForm() {
+      var name    = document.getElementById('name').value.trim();
+      var email   = document.getElementById('email').value.trim();
+      var topic   = document.getElementById('topic').value;
+      var message = document.getElementById('message').value.trim();
+      var consent = document.getElementById('consent').checked;
+
+      var ok = true;
+      ok = validateField('name',    name.length >= 2)    && ok;
+      ok = validateField('email',   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) && ok;
+      ok = validateField('topic',   topic !== '')         && ok;
+      ok = validateField('message', message.length >= 20) && ok;
+
+      // Consent
+      var consentGrp = document.getElementById('grp-consent');
+      if (!consent) {
+        consentGrp.style.color = '#ff6666';
+        ok = false;
+      } else {
+        consentGrp.style.color = '';
+      }
+      return ok;
+    }
+
+    // Live validation on blur
+    ['name', 'email', 'topic', 'message'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('blur', function () { validateForm(); });
+      el.addEventListener('input', function () {
+        var grp = document.getElementById('grp-' + id);
+        if (grp && grp.classList.contains('has-error')) validateForm();
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validateForm()) return;
+
+      // Check if Formspree ID has been configured
+      var action = form.getAttribute('action');
+      if (action.includes('YOUR_FORM_ID')) {
+        // Dev mode: show success without actual send
+        successBox.classList.add('visible');
+        form.style.display = 'none';
+        return;
+      }
+
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+      successBox.classList.remove('visible');
+      errorBox.classList.remove('visible');
+
+      var data = new FormData(form);
+
+      fetch(action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function (res) {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        if (res.ok) {
+          successBox.classList.add('visible');
+          form.reset();
+          form.style.display = 'none';
+          successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          errorBox.classList.add('visible');
+        }
+      })
+      .catch(function () {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        errorBox.classList.add('visible');
+      });
+    });
+  </script>
 
 </body>
 </html>
