@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>X-Tire — Wkładki Rowerowe Nowej Generacji</title>
+  <meta name="description" content="X-Tire — profesjonalne wkładki rowerowe z materiału przemysłowej klasy. Maksymalna ochrona obręczy, jazda przy niskim ciśnieniu, trwałość na lata. Dostawa 48h." />
+  <meta name="keywords" content="wkładki rowerowe, insert rowerowy, tubeless insert, MTB, enduro, trail, ochrona obręczy" />
+  <link rel="canonical" href="https://mroova1982.github.io/xTirev_1.0/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="X-Tire — Wkładki Rowerowe Nowej Generacji" />
+  <meta property="og:description" content="Profesjonalne wkładki rowerowe z materiału przemysłowej klasy. Jedź bez kompromisów." />
+  <meta property="og:image" content="https://mroova1982.github.io/xTirev_1.0/assets/hero.jpg" />
+  <meta property="og:url" content="https://mroova1982.github.io/xTirev_1.0/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "X-Tire",
+    "description": "Profesjonalne wkładki rowerowe z materiału przemysłowej klasy",
+    "url": "https://mroova1982.github.io/xTirev_1.0/",
+    "image": "https://mroova1982.github.io/xTirev_1.0/assets/xtire.svg",
+    "priceRange": "299-349 PLN",
+    "currenciesAccepted": "PLN",
+    "paymentAccepted": "Credit Card, BLIK"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Snipcart CSS -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.css" />
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --lime: #C8FF00;
+      --lime-dim: rgba(200,255,0,0.15);
+      --dark: #0a0a0a;
+      --dark2: #111111;
+      --dark3: #1a1a1a;
+      --dark4: #222222;
+      --gray: #888888;
+      --gray-light: #cccccc;
+      --white: #ffffff;
+      --font-head: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+      --nav-h: 80px;
+      --radius: 8px;
+      --transition: 0.25s ease;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      gap: 32px;
+    }
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+    .navbar-logo img {
+      height: 64px;
+      width: auto;
+      filter: invert(1) brightness(1.2);
+      transition: filter var(--transition);
+    }
+    .navbar-logo:hover img { filter: invert(1) brightness(1) sepia(1) saturate(10) hue-rotate(30deg); }
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+    }
+    .navbar-nav a {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: color var(--transition), background var(--transition);
+    }
+    .navbar-nav a:hover { color: var(--lime); background: var(--lime-dim); }
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .lang-switcher {
+      display: flex;
+      gap: 2px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      padding: 2px;
+    }
+    .lang-btn {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--gray);
+      padding: 4px 10px;
+      border-radius: 3px;
+      transition: all var(--transition);
+    }
+    .lang-btn.active { background: var(--lime); color: var(--dark); }
+    .btn-cart {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--gray-light);
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--transition);
+    }
+    .btn-cart:hover { border-color: var(--lime); color: var(--lime); }
+    .btn-buy {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--lime);
+      color: var(--dark);
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: all var(--transition);
+    }
+    .btn-buy:hover { background: #d4ff1a; transform: translateY(-1px); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(10,10,10,0.98);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+      transition: color var(--transition);
+    }
+    .mobile-nav a:hover { color: var(--lime); }
+    .mobile-nav-close {
+      position: absolute;
+      top: 24px; right: 24px;
+      font-size: 32px;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/hero.jpg');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      animation: kenBurns 12s ease-in-out infinite alternate;
+    }
+    @keyframes kenBurns {
+      from { transform: scale(1.05) translate(0,0); }
+      to   { transform: scale(1.12) translate(-1%,-1%); }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(10,10,10,0.85) 0%,
+        rgba(10,10,10,0.5) 50%,
+        rgba(10,10,10,0.1) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 60px;
+      max-width: 700px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 20px;
+    }
+    .hero-badge::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      background: var(--lime);
+      border-radius: 50%;
+    }
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: 900;
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+    .hero-title .lime { color: var(--lime); }
+    .hero-subtitle {
+      font-size: 17px;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--lime);
+      color: var(--dark);
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      transition: all var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { background: #d4ff1a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,255,0,0.3); }
+    .btn-secondary {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      padding: 16px 32px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    .btn-secondary:hover { border-color: var(--lime); color: var(--lime); }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      background: var(--dark2);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 4px;
+    }
+    .stat-number {
+      font-family: var(--font-head);
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--lime);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .stat-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 100px 60px; }
+    .section-label {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 900;
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+    .section-title .line2 { color: var(--lime); }
+
+    /* ===== USP GRID ===== */
+    .usp-section { background: var(--dark2); }
+    .usp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 0;
+    }
+    .usp-card {
+      background: var(--dark3);
+      padding: 40px 32px;
+      transition: background var(--transition);
+    }
+    .usp-card:hover { background: var(--dark4); }
+    .usp-number {
+      font-family: var(--font-head);
+      font-size: 48px;
+      font-weight: 900;
+      color: rgba(200,255,0,0.15);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .usp-title {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+    .usp-desc { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+    /* ===== SHOP SECTION ===== */
+    .shop-section { background: var(--dark); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .product-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .product-card:hover { transform: translateY(-4px); border-color: rgba(200,255,0,0.3); }
+    .product-img {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      background: var(--dark3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-img img { transform: scale(1.05); }
+    .product-badge {
+      position: absolute;
+      top: 16px; left: 16px;
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+    .badge-bestseller { background: var(--lime); color: var(--dark); }
+    .badge-new { background: #ff6b35; color: var(--white); }
+    .badge-soon { background: rgba(255,255,255,0.15); color: var(--white); }
+    .product-info { padding: 28px; }
+    .product-discipline {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 8px;
+    }
+    .product-name {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+    .product-desc { font-size: 14px; color: var(--gray); margin-bottom: 20px; line-height: 1.6; }
+    .product-specs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .spec-tag {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 3px;
+      color: var(--gray-light);
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .product-price {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--white);
+    }
+    .product-price span {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray);
+    }
+    /* Snipcart add-to-cart button */
+    .btn-add-cart {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--lime);
+      color: var(--dark);
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-add-cart:hover { background: #d4ff1a; transform: translateY(-1px); }
+    .btn-add-cart:disabled,
+    .btn-soon {
+      background: rgba(255,255,255,0.08) !important;
+      color: var(--gray) !important;
+      cursor: not-allowed !important;
+      transform: none !important;
+    }
+
+    /* ===== TECHNOLOGY ===== */
+    .tech-section { background: var(--dark2); }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .tech-features { display: flex; flex-direction: column; gap: 32px; }
+    .tech-feature { display: flex; gap: 20px; align-items: flex-start; }
+    .tech-feature-num {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--lime);
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .tech-feature-title {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .tech-feature-desc { font-size: 14px; color: var(--gray); line-height: 1.7; }
+    .tech-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+    .tech-table th {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .tech-table th:nth-child(2) { color: var(--lime); }
+    .tech-table td {
+      padding: 14px 16px;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .tech-table td:first-child { color: var(--gray); }
+    .tech-table td:nth-child(2) { color: var(--white); font-weight: 600; }
+    .tech-table td:nth-child(3) { color: var(--gray); }
+    .tech-img-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+    }
+    .tech-img-wrap img { width: 100%; height: 400px; object-fit: cover; }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-section { background: var(--dark); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .testimonial-stars { color: var(--lime); font-size: 18px; margin-bottom: 16px; letter-spacing: 2px; }
+    .testimonial-text { font-size: 15px; color: var(--gray-light); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--lime-dim);
+      border: 2px solid var(--lime);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--lime);
+      flex-shrink: 0;
+    }
+    .testimonial-name { font-family: var(--font-head); font-size: 16px; font-weight: 800; text-transform: uppercase; }
+    .testimonial-role { font-size: 12px; color: var(--gray); }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: var(--lime);
+      padding: 80px 60px;
+      text-align: center;
+    }
+    .cta-section .section-title { color: var(--dark); margin-bottom: 16px; }
+    .cta-section .section-title .line2 { color: rgba(0,0,0,0.5); }
+    .cta-subtitle { font-size: 18px; color: rgba(0,0,0,0.65); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .btn-dark {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--dark);
+      color: var(--lime);
+      padding: 18px 40px;
+      border-radius: var(--radius);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all var(--transition);
+    }
+    .btn-dark:hover { background: #111; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark2);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 60px 60px 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand img { height: 56px; filter: invert(1); margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; color: var(--gray); line-height: 1.7; max-width: 280px; }
+    .footer-col-title {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { font-size: 14px; color: var(--gray); transition: color var(--transition); }
+    .footer-links a:hover { color: var(--lime); }
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 13px; color: var(--gray); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 13px; color: var(--gray); transition: color var(--transition); }
+    .footer-legal a:hover { color: var(--lime); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .navbar { padding: 0 24px; gap: 16px; }
+      .navbar-nav { display: none; }
+      .hamburger { display: flex; }
+      .btn-buy { display: none; }
+      section { padding: 72px 32px; }
+      .stats-bar { padding: 24px 32px; flex-wrap: wrap; gap: 16px; }
+      .stat-divider { display: none; }
+      .usp-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .tech-grid { grid-template-columns: 1fr; gap: 48px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-content { padding: 0 32px; }
+    }
+    @media (max-width: 640px) {
+      :root { --nav-h: 64px; }
+      .navbar { padding: 0 16px; }
+      .navbar-logo img { height: 48px; }
+      section { padding: 56px 20px; }
+      .stats-bar { padding: 20px; justify-content: center; }
+      .stat-item { min-width: 80px; }
+      .usp-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .hero-content { padding: 0 20px; }
+      .hero-cta { flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .cta-section { padding: 60px 20px; }
+    }
+
+    /* ===== SNIPCART OVERRIDES ===== */
+    #snipcart { --color-accent: #C8FF00; --color-primary: #C8FF00; }
+    .snipcart-modal__container { font-family: var(--font-body); }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" role="navigation" aria-label="Nawigacja główna">
+    <a href="index.html" class="navbar-logo" aria-label="X-Tire — strona główna">
+      <img src="assets/xtire.svg" alt="X-Tire Logo" width="64" height="64" />
+    </a>
+    <div class="navbar-nav" id="desktopNav">
+      <a href="#technologia" data-pl="TECHNOLOGIA" data-en="TECHNOLOGY">TECHNOLOGIA</a>
+      <a href="#produkty" data-pl="PRODUKTY" data-en="PRODUCTS">PRODUKTY</a>
+      <a href="#opinie" data-pl="OPINIE" data-en="REVIEWS">OPINIE</a>
+      <a href="news.html" data-pl="AKTUALNOŚCI" data-en="NEWS">AKTUALNOŚCI</a>
+      <a href="kontakt.html" data-pl="KONTAKT" data-en="CONTACT">KONTAKT</a>
+    </div>
+    <div class="navbar-actions">
+      <div class="lang-switcher" role="group" aria-label="Wybór języka">
+        <button class="lang-btn active" id="btn-pl" onclick="setLang('pl')" aria-pressed="true">PL</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+      </div>
+      <button class="btn-cart snipcart-checkout" aria-label="Koszyk" aria-haspopup="dialog">
+        🛒 <span data-pl="KOSZYK" data-en="CART">KOSZYK</span>
+        <span class="snipcart-items-count"></span>
+      </button>
+      <a href="#produkty" class="btn-buy" data-pl="KUP TERAZ" data-en="BUY NOW">KUP TERAZ</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobileNav" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Menu mobilne">
+    <button class="mobile-nav-close" onclick="toggleMobileNav()" aria-label="Zamknij menu">✕</button>
+    <a href="#technologia" onclick="toggleMobileNav()" data-pl="TECHNOLOGIA" data-en="TECHNOLOGY">TECHNOLOGIA</a>
+    <a href="#produkty" onclick="toggleMobileNav()" data-pl="PRODUKTY" data-en="PRODUCTS">PRODUKTY</a>
+    <a href="#opinie" onclick="toggleMobileNav()" data-pl="OPINIE" data-en="REVIEWS">OPINIE</a>
+    <a href="news.html" data-pl="AKTUALNOŚCI" data-en="NEWS">AKTUALNOŚCI</a>
+    <a href="kontakt.html" data-pl="KONTAKT" data-en="CONTACT">KONTAKT</a>
+    <a href="#produkty" class="btn-primary" onclick="toggleMobileNav()" data-pl="KUP TERAZ →" data-en="BUY NOW →">KUP TERAZ →</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="Baner główny">
+    <div class="hero-bg" role="img" aria-label="Rowerzysta MTB w lesie"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge" data-pl="Polska Innowacja · Wkładki Rowerowe" data-en="Polish Innovation · Bike Inserts">
+        Polska Innowacja · Wkładki Rowerowe
+      </div>
+      <h1 class="hero-title">
+        <span data-pl="JEDŹ BEZ<br>KOMPROMISÓW." data-en="RIDE WITHOUT<br>COMPROMISE.">
+          JEDŹ BEZ<br><span class="lime">KOMPROMISÓW.</span>
+        </span>
+      </h1>
+      <p class="hero-subtitle" data-pl="Wkładki X-Tire z materiału przemysłowej klasy — maksymalna ochrona obręczy, pełna kontrola przy niskim ciśnieniu, trwałość na lata." data-en="X-Tire inserts made from industrial-grade material — maximum rim protection, full control at low pressure, durability for years.">
+        Wkładki X-Tire z materiału przemysłowej klasy — maksymalna ochrona obręczy, pełna kontrola przy niskim ciśnieniu, trwałość na lata.
+      </p>
+      <div class="hero-cta">
+        <a href="#produkty" class="btn-primary" data-pl="DOBIERZ WKŁADKĘ →" data-en="CHOOSE INSERT →">DOBIERZ WKŁADKĘ →</a>
+        <a href="#technologia" class="btn-secondary" data-pl="POZNAJ TECHNOLOGIĘ" data-en="LEARN TECHNOLOGY">POZNAJ TECHNOLOGIĘ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <div class="stats-bar" role="region" aria-label="Kluczowe statystyki">
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label" data-pl="Testowane w terenie" data-en="Field tested">Testowane w terenie</div>
+    </div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat-item">
+      <div class="stat-number">3×</div>
+      <div class="stat-label" data-pl="Trwalsza niż EVA" data-en="More durable than EVA">Trwalsza niż EVA</div>
+    </div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat-item">
+      <div class="stat-number">0 PSI</div>
+      <div class="stat-label" data-pl="Jedź nawet na flaku" data-en="Ride even flat">Jedź nawet na flaku</div>
+    </div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat-item">
+      <div class="stat-number">48h</div>
+      <div class="stat-label" data-pl="Dostawa w Polsce" data-en="Delivery in Poland">Dostawa w Polsce</div>
+    </div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat-item">
+      <div class="stat-number">PL</div>
+      <div class="stat-label" data-pl="Produkt Polski" data-en="Polish Product">Produkt Polski</div>
+    </div>
+  </div>
+
+  <!-- ===== USP ===== -->
+  <section class="usp-section" aria-labelledby="usp-title">
+    <div class="section-label" data-pl="Dlaczego X-Tire?" data-en="Why X-Tire?">Dlaczego X-Tire?</div>
+    <h2 class="section-title" id="usp-title">
+      <span data-pl="PRZEWAGA,<br>KTÓRĄ CZUJESZ" data-en="ADVANTAGE<br>YOU FEEL">PRZEWAGA,<br><span class="line2">KTÓRĄ CZUJESZ</span></span>
+    </h2>
+    <div class="usp-grid">
+      <div class="usp-card">
+        <div class="usp-number">01</div>
+        <div class="usp-title" data-pl="Niezrównana Ochrona" data-en="Unmatched Protection">Niezrównana Ochrona</div>
+        <div class="usp-desc" data-pl="Materiał przemysłowej klasy pochłania uderzenia, które niszczą obręcze. Koniec z &quot;snake bite&quot; i kosztownymi naprawami." data-en="Industrial-grade material absorbs impacts that destroy rims. No more snake bites and costly repairs.">Materiał przemysłowej klasy pochłania uderzenia, które niszczą obręcze. Koniec z "snake bite" i kosztownymi naprawami.</div>
+      </div>
+      <div class="usp-card">
+        <div class="usp-number">02</div>
+        <div class="usp-title" data-pl="Jazda Bez Kompromisów" data-en="Ride Without Compromise">Jazda Bez Kompromisów</div>
+        <div class="usp-desc" data-pl="Jedź z niższym ciśnieniem dla lepszej trakcji i komfortu. Pełna kontrola w każdym terenie." data-en="Ride at lower pressure for better traction and comfort. Full control in any terrain.">Jedź z niższym ciśnieniem dla lepszej trakcji i komfortu. Pełna kontrola w każdym terenie.</div>
+      </div>
+      <div class="usp-card">
+        <div class="usp-number">03</div>
+        <div class="usp-title" data-pl="Trwałość na Lata" data-en="Durability for Years">Trwałość na Lata</div>
+        <div class="usp-desc" data-pl="Odporność na odkształcenia wielokrotnie wyższa niż standardowe pianki EVA. Inwestycja, która się zwraca." data-en="Deformation resistance many times higher than standard EVA foams. An investment that pays off.">Odporność na odkształcenia wielokrotnie wyższa niż standardowe pianki EVA. Inwestycja, która się zwraca.</div>
+      </div>
+      <div class="usp-card">
+        <div class="usp-number">04</div>
+        <div class="usp-title" data-pl="Kompatybilność" data-en="Compatibility">Kompatybilność</div>
+        <div class="usp-desc" data-pl="Dostępne dla kół 27.5&quot; i 29&quot;. Pasuje do wszystkich obręczy tubeless. Montaż bez specjalistycznych narzędzi." data-en="Available for 27.5&quot; and 29&quot; wheels. Fits all tubeless rims. Installation without special tools.">Dostępne dla kół 27.5" i 29". Pasuje do wszystkich obręczy tubeless. Montaż bez specjalistycznych narzędzi.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SHOP / PRODUCTS ===== -->
+  <section class="shop-section" id="produkty" aria-labelledby="shop-title">
+    <div class="section-label" data-pl="Sklep" data-en="Shop">Sklep</div>
+    <h2 class="section-title" id="shop-title">
+      <span data-pl="WYBIERZ<br>SWÓJ MODEL" data-en="CHOOSE<br>YOUR MODEL">WYBIERZ<br><span class="line2">SWÓJ MODEL</span></span>
+    </h2>
+    <div class="products-grid">
+
+      <!-- Produkt 1: X-Tire Trail -->
+      <article class="product-card">
+        <div class="product-img">
+          <img src="assets/insert_grey.jpg" alt="X-Tire Trail — wkładka rowerowa 29 cali" loading="lazy" />
+          <div class="product-badge badge-bestseller" data-pl="Bestseller" data-en="Bestseller">Bestseller</div>
+        </div>
+        <div class="product-info">
+          <div class="product-discipline" data-pl="Trail / Enduro" data-en="Trail / Enduro">Trail / Enduro</div>
+          <h3 class="product-name">X-Tire Trail</h3>
+          <p class="product-desc" data-pl="Wszechstronna wkładka do jazdy trail i enduro. Idealna dla kół 29&quot;. Sprawdzona w terenie przez sezon." data-en="Versatile insert for trail and enduro riding. Ideal for 29&quot; wheels. Field-tested for a full season.">Wszechstronna wkładka do jazdy trail i enduro. Idealna dla kół 29". Sprawdzona w terenie przez sezon.</p>
+          <div class="product-specs">
+            <span class="spec-tag">29"</span>
+            <span class="spec-tag">Tubeless</span>
+            <span class="spec-tag" data-pl="Montaż 20 min" data-en="20 min install">Montaż 20 min</span>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">299 <span data-pl="zł / szt." data-en="PLN / pc.">zł / szt.</span></div>
+            <button
+              class="btn-add-cart snipcart-add-item"
+              data-item-id="xtire-trail-29"
+              data-item-price="299.00"
+              data-item-url="/xTirev_1.0/index.html"
+              data-item-description="Wszechstronna wkładka rowerowa do jazdy trail i enduro. Rozmiar 29 cali."
+              data-item-image="https://mroova1982.github.io/xTirev_1.0/assets/insert_grey.jpg"
+              data-item-name="X-Tire Trail 29&quot;"
+              data-item-weight="0.45"
+              data-item-custom1-name="Rozmiar koła"
+              data-item-custom1-options="29 cali"
+              aria-label="Dodaj X-Tire Trail do koszyka"
+            >
+              <span data-pl="DO KOSZYKA" data-en="ADD TO CART">DO KOSZYKA</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Produkt 2: X-Tire Enduro Pro -->
+      <article class="product-card">
+        <div class="product-img">
+          <img src="assets/insert_red.jpg" alt="X-Tire Enduro Pro — wkładka rowerowa enduro DH" loading="lazy" />
+          <div class="product-badge badge-new" data-pl="Nowość" data-en="New">Nowość</div>
+        </div>
+        <div class="product-info">
+          <div class="product-discipline" data-pl="Enduro / DH" data-en="Enduro / DH">Enduro / DH</div>
+          <h3 class="product-name">X-Tire Enduro Pro</h3>
+          <p class="product-desc" data-pl="Maksymalna ochrona dla najtrudniejszych tras. Wzmocniona warstwa zewnętrzna dla ekstremalnych warunków." data-en="Maximum protection for the toughest trails. Reinforced outer layer for extreme conditions.">Maksymalna ochrona dla najtrudniejszych tras. Wzmocniona warstwa zewnętrzna dla ekstremalnych warunków.</p>
+          <div class="product-specs">
+            <span class="spec-tag">29"</span>
+            <span class="spec-tag">Enduro DH</span>
+            <span class="spec-tag" data-pl="Wzmocniona" data-en="Reinforced">Wzmocniona</span>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">349 <span data-pl="zł / szt." data-en="PLN / pc.">zł / szt.</span></div>
+            <button
+              class="btn-add-cart snipcart-add-item"
+              data-item-id="xtire-enduro-pro-29"
+              data-item-price="349.00"
+              data-item-url="/xTirev_1.0/index.html"
+              data-item-description="Wkładka rowerowa Enduro Pro do ekstremalnych tras. Wzmocniona warstwa zewnętrzna. Rozmiar 29 cali."
+              data-item-image="https://mroova1982.github.io/xTirev_1.0/assets/insert_red.jpg"
+              data-item-name="X-Tire Enduro Pro 29&quot;"
+              data-item-weight="0.52"
+              data-item-custom1-name="Rozmiar koła"
+              data-item-custom1-options="29 cali"
+              aria-label="Dodaj X-Tire Enduro Pro do koszyka"
+            >
+              <span data-pl="DO KOSZYKA" data-en="ADD TO CART">DO KOSZYKA</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Produkt 3: X-Tire Gravel (wkrótce) -->
+      <article class="product-card">
+        <div class="product-img">
+          <img src="assets/insert3.jpg" alt="X-Tire Gravel — wkładka rowerowa gravel XC" loading="lazy" />
+          <div class="product-badge badge-soon" data-pl="Wkrótce" data-en="Coming Soon">Wkrótce</div>
+        </div>
+        <div class="product-info">
+          <div class="product-discipline" data-pl="Gravel / XC" data-en="Gravel / XC">Gravel / XC</div>
+          <h3 class="product-name">X-Tire Gravel</h3>
+          <p class="product-desc" data-pl="Lekka wkładka do jazdy gravel i XC. Komfort na długich dystansach. Dostępna wkrótce." data-en="Lightweight insert for gravel and XC riding. Comfort on long distances. Coming soon.">Lekka wkładka do jazdy gravel i XC. Komfort na długich dystansach. Dostępna wkrótce.</p>
+          <div class="product-specs">
+            <span class="spec-tag">29"</span>
+            <span class="spec-tag">Gravel XC</span>
+            <span class="spec-tag" data-pl="Lekka" data-en="Lightweight">Lekka</span>
+          </div>
+          <div class="product-footer">
+            <div class="product-price" data-pl="Wkrótce" data-en="Coming Soon">Wkrótce</div>
+            <button class="btn-add-cart btn-soon" disabled aria-disabled="true" data-pl="POWIADOM MNIE" data-en="NOTIFY ME">POWIADOM MNIE</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== TECHNOLOGY ===== -->
+  <section class="tech-section" id="technologia" aria-labelledby="tech-title">
+    <div class="section-label" data-pl="Technologia" data-en="Technology">Technologia</div>
+    <h2 class="section-title" id="tech-title">
+      <span data-pl="MATERIAŁ<br>PRZEMYSŁOWEJ KLASY" data-en="INDUSTRIAL<br>GRADE MATERIAL">MATERIAŁ<br><span class="line2">PRZEMYSŁOWEJ KLASY</span></span>
+    </h2>
+    <div class="tech-grid">
+      <div>
+        <div class="tech-features">
+          <div class="tech-feature">
+            <div class="tech-feature-num">01</div>
+            <div>
+              <div class="tech-feature-title" data-pl="Struktura Komórkowa" data-en="Cellular Structure">Struktura Komórkowa</div>
+              <div class="tech-feature-desc" data-pl="Zamknięte komórki materiału absorbują energię uderzenia i natychmiast wracają do pierwotnego kształtu." data-en="Closed cells absorb impact energy and immediately return to their original shape.">Zamknięte komórki materiału absorbują energię uderzenia i natychmiast wracają do pierwotnego kształtu.</div>
+            </div>
+          </div>
+          <div class="tech-feature">
+            <div class="tech-feature-num">02</div>
+            <div>
+              <div class="tech-feature-title" data-pl="Odporność na Temperaturę" data-en="Temperature Resistance">Odporność na Temperaturę</div>
+              <div class="tech-feature-desc" data-pl="Zachowuje właściwości w zakresie od -20°C do +60°C. Działa równie dobrze zimą jak latem." data-en="Maintains properties from -20°C to +60°C. Works equally well in winter and summer.">Zachowuje właściwości w zakresie od -20°C do +60°C. Działa równie dobrze zimą jak latem.</div>
+            </div>
+          </div>
+          <div class="tech-feature">
+            <div class="tech-feature-num">03</div>
+            <div>
+              <div class="tech-feature-title" data-pl="Kompatybilność z Uszczelniaczem" data-en="Sealant Compatibility">Kompatybilność z Uszczelniaczem</div>
+              <div class="tech-feature-desc" data-pl="Materiał nie absorbuje mleczka uszczelniającego. Twój tubeless działa tak samo efektywnie." data-en="The material does not absorb sealant. Your tubeless works just as effectively.">Materiał nie absorbuje mleczka uszczelniającego. Twój tubeless działa tak samo efektywnie.</div>
+            </div>
+          </div>
+        </div>
+        <table class="tech-table" aria-label="Porównanie X-Tire z EVA">
+          <thead>
+            <tr>
+              <th data-pl="Cecha" data-en="Feature">Cecha</th>
+              <th>X-Tire</th>
+              <th data-pl="Standardowa EVA" data-en="Standard EVA">Standardowa EVA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-pl="Absorpcja uderzeń" data-en="Impact absorption">Absorpcja uderzeń</td>
+              <td data-pl="✓ Bardzo wysoka" data-en="✓ Very high">✓ Bardzo wysoka</td>
+              <td data-pl="Średnia" data-en="Average">Średnia</td>
+            </tr>
+            <tr>
+              <td data-pl="Trwałość" data-en="Durability">Trwałość</td>
+              <td data-pl="✓ 3× dłuższa" data-en="✓ 3× longer">✓ 3× dłuższa</td>
+              <td data-pl="Standardowa" data-en="Standard">Standardowa</td>
+            </tr>
+            <tr>
+              <td data-pl="Absorpcja uszczelniacza" data-en="Sealant absorption">Absorpcja uszczelniacza</td>
+              <td data-pl="✓ Brak" data-en="✓ None">✓ Brak</td>
+              <td data-pl="✗ Tak" data-en="✗ Yes">✗ Tak</td>
+            </tr>
+            <tr>
+              <td data-pl="Jazda na &quot;flaku&quot;" data-en="Flat riding">Jazda na "flaku"</td>
+              <td data-pl="✓ Tak" data-en="✓ Yes">✓ Tak</td>
+              <td data-pl="✗ Ograniczona" data-en="✗ Limited">✗ Ograniczona</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tech-img-wrap">
+        <img src="assets/insert3.jpg" alt="Przekrój wkładki X-Tire — widok struktury materiału" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials-section" id="opinie" aria-labelledby="reviews-title">
+    <div class="section-label" data-pl="Opinie" data-en="Reviews">Opinie</div>
+    <h2 class="section-title" id="reviews-title">
+      <span data-pl="CO MÓWIĄ<br>ROWERZYŚCI" data-en="WHAT RIDERS<br>SAY">CO MÓWIĄ<br><span class="line2">ROWERZYŚCI</span></span>
+    </h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars" aria-label="5 gwiazdek">★★★★★</div>
+        <p class="testimonial-text" data-pl="&quot;Jeżdżę na e-MTB i wkładka X-Tire to game changer. Mogę jechać z dużo niższym ciśnieniem, opona lepiej pracuje, a obręcze są bezpieczne.&quot;" data-en="&quot;I ride an e-MTB and the X-Tire insert is a game changer. I can ride at much lower pressure, the tire works better, and the rims are safe.&quot;">"Jeżdżę na e-MTB i wkładka X-Tire to game changer. Mogę jechać z dużo niższym ciśnieniem, opona lepiej pracuje, a obręcze są bezpieczne."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">MK</div>
+          <div>
+            <div class="testimonial-name">Marek K.</div>
+            <div class="testimonial-role" data-pl="E-MTB · Tester produktu" data-en="E-MTB · Product tester">E-MTB · Tester produktu</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars" aria-label="5 gwiazdek">★★★★★</div>
+        <p class="testimonial-text" data-pl="&quot;Przejechałem z X-Tire cały sezon enduro. Żadnego przebicia, żadnej uszkodzonej obręczy. Po sezonie wkładka wygląda jak nowa.&quot;" data-en="&quot;I rode a full enduro season with X-Tire. No punctures, no damaged rims. After the season the insert looks like new.&quot;">"Przejechałem z X-Tire cały sezon enduro. Żadnego przebicia, żadnej uszkodzonej obręczy. Po sezonie wkładka wygląda jak nowa."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">PW</div>
+          <div>
+            <div class="testimonial-name">Piotr W.</div>
+            <div class="testimonial-role" data-pl="Enduro · Zawodnik amatorski" data-en="Enduro · Amateur racer">Enduro · Zawodnik amatorski</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars" aria-label="5 gwiazdek">★★★★★</div>
+        <p class="testimonial-text" data-pl="&quot;Montaż zajął mi 20 minut. Różnica w prowadzeniu roweru jest natychmiastowa — opona jest bardziej stabilna w zakrętach.&quot;" data-en="&quot;Installation took me 20 minutes. The difference in bike handling is immediate — the tire is more stable in corners.&quot;">"Montaż zajął mi 20 minut. Różnica w prowadzeniu roweru jest natychmiastowa — opona jest bardziej stabilna w zakrętach."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">AJ</div>
+          <div>
+            <div class="testimonial-name">Anna J.</div>
+            <div class="testimonial-role" data-pl="Trail · Instruktorka MTB" data-en="Trail · MTB Instructor">Trail · Instruktorka MTB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section" aria-labelledby="cta-title">
+    <h2 class="section-title" id="cta-title">
+      <span data-pl="GOTOWY NA<br>NOWY POZIOM?" data-en="READY FOR<br>NEXT LEVEL?">GOTOWY NA<br><span class="line2">NOWY POZIOM?</span></span>
+    </h2>
+    <p class="cta-subtitle" data-pl="Nie wiesz który model wybrać? Dobierz wkładkę do swojego roweru i dyscypliny." data-en="Not sure which model to choose? Match the insert to your bike and discipline.">Nie wiesz który model wybrać? Dobierz wkładkę do swojego roweru i dyscypliny.</p>
+    <a href="#produkty" class="btn-dark" data-pl="PRZEJDŹ DO SKLEPU →" data-en="GO TO SHOP →">PRZEJDŹ DO SKLEPU →</a>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/xtire.svg" alt="X-Tire Logo" width="56" height="56" />
+        <p data-pl="Profesjonalne wkładki rowerowe z materiału przemysłowej klasy. Polska innowacja dla wymagających rowerzystów." data-en="Professional bike inserts made from industrial-grade material. Polish innovation for demanding riders.">Profesjonalne wkładki rowerowe z materiału przemysłowej klasy. Polska innowacja dla wymagających rowerzystów.</p>
+      </div>
+      <div>
+        <div class="footer-col-title" data-pl="Produkty" data-en="Products">Produkty</div>
+        <nav class="footer-links" aria-label="Linki do produktów">
+          <a href="#produkty">X-Tire Trail</a>
+          <a href="#produkty">X-Tire Enduro Pro</a>
+          <a href="#produkty" data-pl="X-Tire Gravel (wkrótce)" data-en="X-Tire Gravel (soon)">X-Tire Gravel (wkrótce)</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title" data-pl="Informacje" data-en="Information">Informacje</div>
+        <nav class="footer-links" aria-label="Linki informacyjne">
+          <a href="news.html" data-pl="Aktualności" data-en="News">Aktualności</a>
+          <a href="#technologia" data-pl="Technologia" data-en="Technology">Technologia</a>
+          <a href="kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
+          <a href="faq.html" data-pl="FAQ" data-en="FAQ">FAQ</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title" data-pl="Obsługa" data-en="Support">Obsługa</div>
+        <nav class="footer-links" aria-label="Linki obsługi klienta">
+          <a href="dostawa.html" data-pl="Dostawa i Płatności" data-en="Shipping & Payments">Dostawa i Płatności</a>
+          <a href="zwroty.html" data-pl="Zwroty" data-en="Returns">Zwroty</a>
+          <a href="regulamin.html" data-pl="Regulamin" data-en="Terms">Regulamin</a>
+          <a href="polityka.html" data-pl="Polityka Prywatności" data-en="Privacy Policy">Polityka Prywatności</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 X-Tire. <span data-pl="Wszelkie prawa zastrzeżone." data-en="All rights reserved.">Wszelkie prawa zastrzeżone.</span></div>
+      <div class="footer-legal">
+        <a href="regulamin.html" data-pl="Regulamin" data-en="Terms">Regulamin</a>
+        <a href="polityka.html" data-pl="Polityka Prywatności" data-en="Privacy Policy">Polityka Prywatności</a>
+        <a href="cookies.html" data-pl="Cookies" data-en="Cookies">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SNIPCART ===== -->
+  <!-- WAŻNE: Zastąp PUBLIC_API_KEY swoim kluczem z dashboard.snipcart.com -->
+  <div hidden id="snipcart" data-api-key="YOUR_PUBLIC_API_KEY" data-currency="pln"></div>
+  <script async src="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.js"></script>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // === Język ===
+    let currentLang = localStorage.getItem('xtire-lang') || 'pl';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('xtire-lang', lang);
+      document.querySelectorAll('[data-pl]').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (text) {
+          if (el.tagName === 'INPUT' || el.tagName === 'BUTTON') {
+            el.textContent = text;
+          } else if (el.children.length === 0) {
+            el.textContent = text;
+          }
+        }
+      });
+      document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-pl').setAttribute('aria-pressed', lang === 'pl');
+      document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en');
+      document.documentElement.lang = lang;
+    }
+
+    // === Mobile Nav ===
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      const btn = document.getElementById('hamburgerBtn');
+      const isOpen = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    // === Smooth scroll z offsetem navbara ===
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 80;
+          window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // === Navbar scroll effect ===
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      navbar.style.background = window.scrollY > 50
+        ? 'rgba(10,10,10,0.98)'
+        : 'rgba(10,10,10,0.95)';
+    });
+
+    // === Init ===
+    document.addEventListener('DOMContentLoaded', () => {
+      setLang(currentLang);
+    });
+  </script>
+
+</body>
+</html>

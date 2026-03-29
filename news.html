@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aktualności — X-Tire</title>
+  <meta name="description" content="Najnowsze informacje ze świata X-Tire — premiery produktów, testy terenowe, porady montażu i aktualności z rynku MTB." />
+  <link rel="canonical" href="https://mroova1982.github.io/xTirev_1.0/news.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --lime: #C8FF00; --dark: #0a0a0a; --dark2: #111; --dark3: #1a1a1a;
+      --gray: #888; --gray-light: #ccc; --white: #fff;
+      --font-head: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+      --nav-h: 80px; --radius: 8px; --transition: 0.25s ease;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--dark); color: var(--white); font-family: var(--font-body); overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: var(--nav-h); background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; padding: 0 40px; gap: 32px;
+    }
+    .navbar-logo img { height: 64px; filter: invert(1) brightness(1.2); }
+    .navbar-nav { display: flex; align-items: center; gap: 4px; flex: 1; }
+    .navbar-nav a {
+      font-family: var(--font-head); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-light);
+      padding: 8px 12px; border-radius: 4px; transition: color var(--transition), background var(--transition);
+    }
+    .navbar-nav a:hover, .navbar-nav a.active { color: var(--lime); background: rgba(200,255,0,0.1); }
+    .navbar-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .lang-switcher { display: flex; gap: 2px; background: rgba(255,255,255,0.06); border-radius: 4px; padding: 2px; }
+    .lang-btn { font-family: var(--font-head); font-size: 12px; font-weight: 700; color: var(--gray); padding: 4px 10px; border-radius: 3px; cursor: pointer; border: none; background: none; transition: all var(--transition); }
+    .lang-btn.active { background: var(--lime); color: var(--dark); }
+    .btn-cart { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--gray-light); padding: 8px 16px; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; cursor: pointer; background: none; display: flex; align-items: center; gap: 8px; transition: all var(--transition); }
+    .btn-cart:hover { border-color: var(--lime); color: var(--lime); }
+    .btn-buy { font-family: var(--font-head); font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; background: var(--lime); color: var(--dark); padding: 10px 20px; border-radius: 4px; transition: all var(--transition); }
+    .btn-buy:hover { background: #d4ff1a; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; border: none; background: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(10,10,10,0.98); flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--font-head); font-size: 28px; font-weight: 800; text-transform: uppercase; }
+    .mobile-nav-close { position: absolute; top: 24px; right: 24px; font-size: 32px; cursor: pointer; border: none; background: none; color: var(--white); }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding-top: calc(var(--nav-h) + 60px);
+      padding-bottom: 60px;
+      padding-left: 60px; padding-right: 60px;
+      background: var(--dark2);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .page-hero .label { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lime); margin-bottom: 12px; }
+    .page-hero h1 { font-family: var(--font-head); font-size: clamp(40px, 6vw, 72px); font-weight: 900; text-transform: uppercase; line-height: 0.95; }
+
+    /* NEWS GRID */
+    .news-section { padding: 72px 60px; }
+    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .news-card {
+      background: var(--dark2); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition);
+      display: block;
+    }
+    .news-card:hover { transform: translateY(-4px); border-color: rgba(200,255,0,0.3); }
+    .news-card-img { height: 200px; overflow: hidden; background: var(--dark3); }
+    .news-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .news-card:hover .news-card-img img { transform: scale(1.05); }
+    .news-card-body { padding: 24px; }
+    .news-card-cat { font-family: var(--font-head); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); margin-bottom: 8px; }
+    .news-card-title { font-family: var(--font-head); font-size: 20px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; line-height: 1.1; }
+    .news-card-excerpt { font-size: 14px; color: var(--gray); line-height: 1.6; margin-bottom: 16px; }
+    .news-card-meta { font-size: 12px; color: var(--gray); display: flex; gap: 12px; align-items: center; }
+    .news-card-meta span { display: flex; align-items: center; gap: 4px; }
+
+    /* FOOTER */
+    footer { background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 60px 24px; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-copy { font-size: 13px; color: var(--gray); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 13px; color: var(--gray); transition: color var(--transition); }
+    .footer-legal a:hover { color: var(--lime); }
+
+    @media (max-width: 1024px) {
+      .navbar { padding: 0 24px; }
+      .navbar-nav { display: none; }
+      .hamburger { display: flex; }
+      .btn-buy { display: none; }
+      .page-hero, .news-section { padding-left: 32px; padding-right: 32px; }
+      .news-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .navbar { padding: 0 16px; }
+      .page-hero, .news-section { padding-left: 20px; padding-right: 20px; }
+      .news-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo"><img src="assets/xtire.svg" alt="X-Tire" width="64" height="64" /></a>
+    <div class="navbar-nav">
+      <a href="index.html#technologia" data-pl="TECHNOLOGIA" data-en="TECHNOLOGY">TECHNOLOGIA</a>
+      <a href="index.html#produkty" data-pl="PRODUKTY" data-en="PRODUCTS">PRODUKTY</a>
+      <a href="index.html#opinie" data-pl="OPINIE" data-en="REVIEWS">OPINIE</a>
+      <a href="news.html" class="active" data-pl="AKTUALNOŚCI" data-en="NEWS">AKTUALNOŚCI</a>
+      <a href="kontakt.html" data-pl="KONTAKT" data-en="CONTACT">KONTAKT</a>
+    </div>
+    <div class="navbar-actions">
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-pl" onclick="setLang('pl')">PL</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="btn-cart snipcart-checkout">🛒 <span data-pl="KOSZYK" data-en="CART">KOSZYK</span> <span class="snipcart-items-count"></span></button>
+      <a href="index.html#produkty" class="btn-buy" data-pl="KUP TERAZ" data-en="BUY NOW">KUP TERAZ</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobileNav" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true">
+    <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
+    <a href="index.html#technologia" onclick="toggleMobileNav()">TECHNOLOGIA</a>
+    <a href="index.html#produkty" onclick="toggleMobileNav()">PRODUKTY</a>
+    <a href="news.html" onclick="toggleMobileNav()">AKTUALNOŚCI</a>
+    <a href="kontakt.html" onclick="toggleMobileNav()">KONTAKT</a>
+  </div>
+
+  <div class="page-hero">
+    <div class="label" data-pl="Blog & Aktualności" data-en="Blog & News">Blog & Aktualności</div>
+    <h1 data-pl="AKTUALNOŚCI" data-en="NEWS">AKTUALNOŚCI</h1>
+  </div>
+
+  <section class="news-section">
+    <div class="news-grid">
+      <a class="news-card" href="aktualnosci/x-tire-trail-premiera/index.html">
+        <div class="news-card-img"><img src="assets/hero.jpg" alt="Premiera X-Tire Trail" loading="lazy" /></div>
+        <div class="news-card-body">
+          <div class="news-card-cat" data-pl="Premiera" data-en="Launch">Premiera</div>
+          <div class="news-card-title" data-pl="X-Tire Trail — oficjalna premiera" data-en="X-Tire Trail — official launch">X-Tire Trail — oficjalna premiera</div>
+          <div class="news-card-excerpt" data-pl="Przedstawiamy X-Tire Trail — wszechstronną wkładkę dla rowerzystów trail i enduro. Sprawdź co ją wyróżnia." data-en="Introducing X-Tire Trail — a versatile insert for trail and enduro riders. See what makes it stand out.">Przedstawiamy X-Tire Trail — wszechstronną wkładkę dla rowerzystów trail i enduro.</div>
+          <div class="news-card-meta"><span>📅 Marzec 2026</span><span>⏱ 5 min</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="aktualnosci/sezon-enduro-2026/index.html">
+        <div class="news-card-img"><img src="assets/hero2.jpg" alt="Sezon Enduro 2026" loading="lazy" /></div>
+        <div class="news-card-body">
+          <div class="news-card-cat" data-pl="Test" data-en="Test">Test</div>
+          <div class="news-card-title" data-pl="Sezon Enduro 2026 — 800 km z X-Tire" data-en="Enduro Season 2026 — 800 km with X-Tire">Sezon Enduro 2026 — 800 km z X-Tire</div>
+          <div class="news-card-excerpt" data-pl="Pełny sezon na wkładkach X-Tire. Jak sprawdziły się w najtrudniejszych warunkach? Szczery raport testera." data-en="A full season on X-Tire inserts. How did they perform in the toughest conditions? An honest tester's report.">Pełny sezon na wkładkach X-Tire. Jak sprawdziły się w najtrudniejszych warunkach?</div>
+          <div class="news-card-meta"><span>📅 Luty 2026</span><span>⏱ 8 min</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="aktualnosci/dlaczego-emtb-wkladki/index.html">
+        <div class="news-card-img"><img src="assets/insert_grey.jpg" alt="E-MTB i wkładki" loading="lazy" /></div>
+        <div class="news-card-body">
+          <div class="news-card-cat" data-pl="Poradnik" data-en="Guide">Poradnik</div>
+          <div class="news-card-title" data-pl="Dlaczego E-MTB potrzebuje wkładek?" data-en="Why does E-MTB need inserts?">Dlaczego E-MTB potrzebuje wkładek?</div>
+          <div class="news-card-excerpt" data-pl="E-bike waży dwa razy więcej niż standardowy MTB. Co to oznacza dla Twoich obręczy i jak X-Tire rozwiązuje ten problem." data-en="An e-bike weighs twice as much as a standard MTB. What does this mean for your rims and how X-Tire solves this.">E-bike waży dwa razy więcej niż standardowy MTB. Co to oznacza dla Twoich obręczy?</div>
+          <div class="news-card-meta"><span>📅 Styczeń 2026</span><span>⏱ 6 min</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="aktualnosci/jak-zamontowac-x-tire/index.html">
+        <div class="news-card-img"><img src="assets/insert_red.jpg" alt="Montaż X-Tire" loading="lazy" /></div>
+        <div class="news-card-body">
+          <div class="news-card-cat" data-pl="Instrukcja" data-en="How-to">Instrukcja</div>
+          <div class="news-card-title" data-pl="Jak zamontować X-Tire w 20 minut?" data-en="How to install X-Tire in 20 minutes?">Jak zamontować X-Tire w 20 minut?</div>
+          <div class="news-card-excerpt" data-pl="Krok po kroku — od zdjęcia opony po pierwsze pompowanie. Bez specjalistycznych narzędzi, bez warsztatu." data-en="Step by step — from removing the tire to the first pump. No special tools, no workshop needed.">Krok po kroku — od zdjęcia opony po pierwsze pompowanie. Bez specjalistycznych narzędzi.</div>
+          <div class="news-card-meta"><span>📅 Grudzień 2025</span><span>⏱ 4 min</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="aktualnosci/x-tire-enduro-pro/index.html">
+        <div class="news-card-img"><img src="assets/insert3.jpg" alt="X-Tire Enduro Pro" loading="lazy" /></div>
+        <div class="news-card-body">
+          <div class="news-card-cat" data-pl="Produkt" data-en="Product">Produkt</div>
+          <div class="news-card-title" data-pl="X-Tire Enduro Pro — dla ekstremalnych tras" data-en="X-Tire Enduro Pro — for extreme trails">X-Tire Enduro Pro — dla ekstremalnych tras</div>
+          <div class="news-card-excerpt" data-pl="Wzmocniona wersja naszej flagowej wkładki. Więcej materiału, więcej ochrony, ta sama lekkość montażu." data-en="Reinforced version of our flagship insert. More material, more protection, same ease of installation.">Wzmocniona wersja naszej flagowej wkładki. Więcej materiału, więcej ochrony.</div>
+          <div class="news-card-meta"><span>📅 Listopad 2025</span><span>⏱ 5 min</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="aktualnosci/cisnienie-z-wkladka/index.html">
+        <div class="news-card-img"><img src="assets/hero.jpg" alt="Ciśnienie z wkładką" loading="lazy" /></div>
+        <div class="news-card-body">
+          <div class="news-card-cat" data-pl="Poradnik" data-en="Guide">Poradnik</div>
+          <div class="news-card-title" data-pl="Jakie ciśnienie z wkładką X-Tire?" data-en="What pressure with X-Tire insert?">Jakie ciśnienie z wkładką X-Tire?</div>
+          <div class="news-card-excerpt" data-pl="Optymalne ciśnienie zależy od wagi rowerzysty, terenu i opony. Podajemy konkretne wartości startowe dla każdej dyscypliny." data-en="Optimal pressure depends on rider weight, terrain and tire. We provide specific starting values for each discipline.">Optymalne ciśnienie zależy od wagi rowerzysty, terenu i opony. Konkretne wartości.</div>
+          <div class="news-card-meta"><span>📅 Październik 2025</span><span>⏱ 3 min</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 X-Tire. <span data-pl="Wszelkie prawa zastrzeżone." data-en="All rights reserved.">Wszelkie prawa zastrzeżone.</span></div>
+      <div class="footer-legal">
+        <a href="regulamin.html">Regulamin</a>
+        <a href="polityka.html">Polityka Prywatności</a>
+      </div>
+    </div>
+  </footer>
+
+  <div hidden id="snipcart" data-api-key="YOUR_PUBLIC_API_KEY" data-currency="pln"></div>
+  <script async src="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.js"></script>
+  <script>
+    let currentLang = localStorage.getItem('xtire-lang') || 'pl';
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('xtire-lang', lang);
+      document.querySelectorAll('[data-pl]').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (text && el.children.length === 0) el.textContent = text;
+      });
+      document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang;
+    }
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      const btn = document.getElementById('hamburgerBtn');
+      const isOpen = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+  </script>
+</body>
+</html>
