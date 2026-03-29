@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aktualności — X-Tire</title>
+  <title>Aktualności — X-Tire | Blog MTB, Testy, Porady</title>
   <meta name="description" content="Najnowsze informacje ze świata X-Tire — premiery produktów, testy terenowe, porady montażu i aktualności z rynku MTB." />
-  <link rel="canonical" href="https://mroova1982.github.io/xTirev_1.0/news.html" />
+  <link rel="canonical" href="https://x-tire.pl/aktualnosci/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Aktualności — X-Tire Blog" />
+  <meta property="og:description" content="Testy terenowe, porady montażu i aktualności ze świata wkładek rowerowych X-Tire." />
+  <meta property="og:image" content="https://x-tire.pl/assets/hero.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -18,6 +22,7 @@
       --font-head: 'Barlow Condensed', sans-serif;
       --font-body: 'Barlow', sans-serif;
       --nav-h: 80px; --radius: 8px; --transition: 0.25s ease;
+      --max-w: 1280px;
     }
     html { scroll-behavior: smooth; }
     body { background: var(--dark); color: var(--white); font-family: var(--font-body); overflow-x: hidden; }
@@ -31,6 +36,7 @@
       backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06);
       display: flex; align-items: center; padding: 0 40px; gap: 32px;
     }
+    .navbar-logo { flex-shrink: 0; }
     .navbar-logo img { height: 64px; filter: invert(1) brightness(1.2); }
     .navbar-nav { display: flex; align-items: center; gap: 4px; flex: 1; }
     .navbar-nav a {
@@ -48,193 +54,536 @@
     .btn-buy { font-family: var(--font-head); font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; background: var(--lime); color: var(--dark); padding: 10px 20px; border-radius: 4px; transition: all var(--transition); }
     .btn-buy:hover { background: #d4ff1a; }
     .hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; border: none; background: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
     .mobile-nav { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(10,10,10,0.98); flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
     .mobile-nav.open { display: flex; }
-    .mobile-nav a { font-family: var(--font-head); font-size: 28px; font-weight: 800; text-transform: uppercase; }
+    .mobile-nav a { font-family: var(--font-head); font-size: 28px; font-weight: 800; text-transform: uppercase; color: var(--white); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--lime); }
     .mobile-nav-close { position: absolute; top: 24px; right: 24px; font-size: 32px; cursor: pointer; border: none; background: none; color: var(--white); }
+    .mobile-lang { display: flex; gap: 12px; margin-top: 12px; }
 
     /* PAGE HERO */
     .page-hero {
-      padding-top: calc(var(--nav-h) + 60px);
-      padding-bottom: 60px;
-      padding-left: 60px; padding-right: 60px;
-      background: var(--dark2);
+      padding-top: calc(var(--nav-h) + 80px);
+      padding-bottom: 80px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(200,255,0,0.04) 0%, transparent 100%);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .page-hero .label { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lime); margin-bottom: 12px; }
-    .page-hero h1 { font-family: var(--font-head); font-size: clamp(40px, 6vw, 72px); font-weight: 900; text-transform: uppercase; line-height: 0.95; }
-
-    /* NEWS GRID */
-    .news-section { padding: 72px 60px; }
-    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .news-card {
-      background: var(--dark2); border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius); overflow: hidden;
-      transition: transform var(--transition), border-color var(--transition);
-      display: block;
+    .page-hero-label {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--lime);
+      margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 8px;
     }
-    .news-card:hover { transform: translateY(-4px); border-color: rgba(200,255,0,0.3); }
-    .news-card-img { height: 200px; overflow: hidden; background: var(--dark3); }
-    .news-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-    .news-card:hover .news-card-img img { transform: scale(1.05); }
-    .news-card-body { padding: 24px; }
-    .news-card-cat { font-family: var(--font-head); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); margin-bottom: 8px; }
-    .news-card-title { font-family: var(--font-head); font-size: 20px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; line-height: 1.1; }
-    .news-card-excerpt { font-size: 14px; color: var(--gray); line-height: 1.6; margin-bottom: 16px; }
-    .news-card-meta { font-size: 12px; color: var(--gray); display: flex; gap: 12px; align-items: center; }
-    .news-card-meta span { display: flex; align-items: center; gap: 4px; }
+    .page-hero-label::before, .page-hero-label::after { content: ''; display: block; width: 32px; height: 1px; background: var(--lime); }
+    .page-hero h1 {
+      font-family: var(--font-head); font-size: clamp(48px, 8vw, 96px);
+      font-weight: 900; text-transform: uppercase; line-height: 0.9;
+      letter-spacing: -0.02em; color: var(--white);
+    }
+    .page-hero h1 span { color: var(--lime); }
+    .page-hero p { font-size: 18px; color: var(--gray); margin-top: 20px; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+    /* CATEGORIES */
+    .categories-bar {
+      padding: 32px 40px;
+      display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .cat-btn {
+      font-family: var(--font-head); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 8px 18px; border-radius: 4px; cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.12); background: none; color: var(--gray);
+      transition: all var(--transition);
+    }
+    .cat-btn:hover, .cat-btn.active { background: var(--lime); color: var(--dark); border-color: var(--lime); }
+
+    /* FEATURED ARTICLE */
+    .featured-section { max-width: var(--max-w); margin: 0 auto; padding: 64px 40px 0; }
+    .featured-label {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--lime);
+      margin-bottom: 24px; display: flex; align-items: center; gap: 8px;
+    }
+    .featured-label::after { content: ''; display: block; flex: 1; height: 1px; background: rgba(200,255,0,0.3); }
+    .featured-card {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      background: var(--dark3); border-radius: 12px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .featured-card:hover { transform: translateY(-4px); border-color: rgba(200,255,0,0.3); }
+    .featured-img { position: relative; overflow: hidden; min-height: 400px; }
+    .featured-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .featured-card:hover .featured-img img { transform: scale(1.04); }
+    .featured-badge {
+      position: absolute; top: 20px; left: 20px;
+      background: var(--lime); color: var(--dark);
+      font-family: var(--font-head); font-size: 11px; font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 3px;
+    }
+    .featured-content { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .featured-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .featured-cat {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime);
+    }
+    .featured-date { font-size: 13px; color: var(--gray); }
+    .featured-content h2 {
+      font-family: var(--font-head); font-size: clamp(28px, 3vw, 40px);
+      font-weight: 900; text-transform: uppercase; line-height: 1.05;
+      letter-spacing: -0.01em; margin-bottom: 16px; color: var(--white);
+    }
+    .featured-content p { font-size: 15px; color: var(--gray); line-height: 1.7; margin-bottom: 32px; }
+    .featured-author { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+    .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--lime); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 900; font-size: 16px; color: var(--dark); flex-shrink: 0; }
+    .author-info { font-size: 13px; }
+    .author-name { font-weight: 600; color: var(--white); }
+    .author-role { color: var(--gray); }
+    .btn-read {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-head); font-size: 13px; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--lime); color: var(--dark);
+      padding: 12px 24px; border-radius: 4px; align-self: flex-start;
+      transition: all var(--transition);
+    }
+    .btn-read:hover { background: #d4ff1a; transform: translateX(4px); }
+
+    /* ARTICLES GRID */
+    .articles-section { max-width: var(--max-w); margin: 0 auto; padding: 64px 40px; }
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+    .section-title {
+      font-family: var(--font-head); font-size: 32px; font-weight: 900;
+      text-transform: uppercase; letter-spacing: -0.01em;
+    }
+    .section-title span { color: var(--lime); }
+    .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .article-card {
+      background: var(--dark3); border-radius: 10px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: transform var(--transition), border-color var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .article-card:hover { transform: translateY(-6px); border-color: rgba(200,255,0,0.25); }
+    .article-card-img { position: relative; overflow: hidden; height: 220px; }
+    .article-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .article-card:hover .article-card-img img { transform: scale(1.06); }
+    .article-card-cat {
+      position: absolute; bottom: 12px; left: 12px;
+      background: rgba(10,10,10,0.85); backdrop-filter: blur(4px);
+      font-family: var(--font-head); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime);
+      padding: 4px 10px; border-radius: 3px;
+    }
+    .article-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .article-card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .article-card-date { font-size: 12px; color: var(--gray); }
+    .article-card-read { font-size: 12px; color: var(--gray); }
+    .article-card-read::before { content: '·'; margin-right: 8px; }
+    .article-card h3 {
+      font-family: var(--font-head); font-size: 20px; font-weight: 800;
+      text-transform: uppercase; line-height: 1.15; margin-bottom: 10px;
+      color: var(--white); transition: color var(--transition);
+    }
+    .article-card:hover h3 { color: var(--lime); }
+    .article-card p { font-size: 14px; color: var(--gray); line-height: 1.65; flex: 1; margin-bottom: 20px; }
+    .article-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .article-card-author { font-size: 12px; color: var(--gray); }
+    .article-card-author strong { color: var(--white); }
+    .btn-read-sm {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime);
+      display: flex; align-items: center; gap: 4px; transition: gap var(--transition);
+    }
+    .btn-read-sm:hover { gap: 8px; }
+
+    /* NEWSLETTER */
+    .newsletter-section {
+      background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 80px 40px; text-align: center;
+    }
+    .newsletter-inner { max-width: 560px; margin: 0 auto; }
+    .newsletter-section h2 {
+      font-family: var(--font-head); font-size: 40px; font-weight: 900;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .newsletter-section h2 span { color: var(--lime); }
+    .newsletter-section p { font-size: 15px; color: var(--gray); margin-bottom: 32px; line-height: 1.6; }
+    .newsletter-form { display: flex; gap: 8px; }
+    .newsletter-form input {
+      flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px; padding: 14px 18px; color: var(--white); font-family: var(--font-body);
+      font-size: 14px; outline: none; transition: border-color var(--transition);
+    }
+    .newsletter-form input:focus { border-color: var(--lime); }
+    .newsletter-form input::placeholder { color: var(--gray); }
+    .newsletter-form button {
+      font-family: var(--font-head); font-size: 13px; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--lime); color: var(--dark);
+      padding: 14px 24px; border-radius: 4px; border: none; cursor: pointer;
+      white-space: nowrap; transition: background var(--transition);
+    }
+    .newsletter-form button:hover { background: #d4ff1a; }
 
     /* FOOTER */
-    footer { background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 60px 24px; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    footer { background: #080808; border-top: 1px solid rgba(255,255,255,0.06); padding: 60px 40px 32px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand img { height: 56px; filter: invert(1) brightness(1.2); margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; color: var(--gray); line-height: 1.7; max-width: 280px; }
+    .footer-col h4 { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 14px; color: var(--gray); margin-bottom: 8px; transition: color var(--transition); }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
     .footer-copy { font-size: 13px; color: var(--gray); }
     .footer-legal { display: flex; gap: 20px; }
     .footer-legal a { font-size: 13px; color: var(--gray); transition: color var(--transition); }
-    .footer-legal a:hover { color: var(--lime); }
+    .footer-legal a:hover { color: var(--white); }
 
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
-      .navbar { padding: 0 24px; }
-      .navbar-nav { display: none; }
-      .hamburger { display: flex; }
-      .btn-buy { display: none; }
-      .page-hero, .news-section { padding-left: 32px; padding-right: 32px; }
-      .news-grid { grid-template-columns: repeat(2, 1fr); }
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-img { min-height: 280px; }
+      .articles-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 640px) {
-      .navbar { padding: 0 16px; }
-      .page-hero, .news-section { padding-left: 20px; padding-right: 20px; }
-      .news-grid { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
+      .navbar { padding: 0 20px; gap: 16px; }
+      .navbar-nav, .navbar-actions .lang-switcher, .navbar-actions .btn-cart, .navbar-actions .btn-buy { display: none; }
+      .hamburger { display: flex; margin-left: auto; }
+      .page-hero { padding: calc(var(--nav-h) + 40px) 20px 48px; }
+      .categories-bar { padding: 20px; }
+      .featured-section { padding: 40px 20px 0; }
+      .featured-content { padding: 28px; }
+      .articles-section { padding: 40px 20px; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .newsletter-section { padding: 48px 20px; }
+      .newsletter-form { flex-direction: column; }
+      footer { padding: 40px 20px 24px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <a href="index.html" class="navbar-logo"><img src="assets/xtire.svg" alt="X-Tire" width="64" height="64" /></a>
-    <div class="navbar-nav">
-      <a href="index.html#technologia" data-pl="TECHNOLOGIA" data-en="TECHNOLOGY">TECHNOLOGIA</a>
-      <a href="index.html#produkty" data-pl="PRODUKTY" data-en="PRODUCTS">PRODUKTY</a>
-      <a href="index.html#opinie" data-pl="OPINIE" data-en="REVIEWS">OPINIE</a>
-      <a href="news.html" class="active" data-pl="AKTUALNOŚCI" data-en="NEWS">AKTUALNOŚCI</a>
-      <a href="kontakt.html" data-pl="KONTAKT" data-en="CONTACT">KONTAKT</a>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation" aria-label="Nawigacja główna">
+  <a class="navbar-logo" href="../index.html" aria-label="X-Tire — strona główna">
+    <img src="../assets/xtire.svg" alt="X-Tire Logo" width="64" height="64" />
+  </a>
+  <div class="navbar-nav">
+    <a href="../index.html#technologia" data-pl="TECHNOLOGIA" data-en="TECHNOLOGY">TECHNOLOGIA</a>
+    <a href="../index.html#produkty" data-pl="PRODUKTY" data-en="PRODUCTS">PRODUKTY</a>
+    <a href="../index.html#opinie" data-pl="OPINIE" data-en="REVIEWS">OPINIE</a>
+    <a href="news.html" class="active" data-pl="AKTUALNOŚCI" data-en="NEWS">AKTUALNOŚCI</a>
+    <a href="../index.html#kontakt" data-pl="KONTAKT" data-en="CONTACT">KONTAKT</a>
+  </div>
+  <div class="navbar-actions">
+    <div class="lang-switcher" role="group" aria-label="Wybór języka">
+      <button class="lang-btn active" id="btn-pl" onclick="setLang('pl')" aria-pressed="true">PL</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
     </div>
-    <div class="navbar-actions">
-      <div class="lang-switcher">
-        <button class="lang-btn active" id="btn-pl" onclick="setLang('pl')">PL</button>
-        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="btn-cart snipcart-checkout" aria-label="Koszyk" aria-haspopup="dialog">
+      🛒 <span class="snipcart-items-count">0</span>
+    </button>
+    <a href="../index.html#produkty" class="btn-buy" data-pl="KUP TERAZ" data-en="BUY NOW">KUP TERAZ</a>
+  </div>
+  <button class="hamburger" id="hamburger-btn" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobileNav" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Menu mobilne">
+  <button class="mobile-nav-close" onclick="toggleMobileNav()" aria-label="Zamknij menu">✕</button>
+  <a href="../index.html#technologia" onclick="toggleMobileNav()" data-pl="TECHNOLOGIA" data-en="TECHNOLOGY">TECHNOLOGIA</a>
+  <a href="../index.html#produkty" onclick="toggleMobileNav()" data-pl="PRODUKTY" data-en="PRODUCTS">PRODUKTY</a>
+  <a href="../index.html#opinie" onclick="toggleMobileNav()" data-pl="OPINIE" data-en="REVIEWS">OPINIE</a>
+  <a href="news.html" onclick="toggleMobileNav()" data-pl="AKTUALNOŚCI" data-en="NEWS">AKTUALNOŚCI</a>
+  <a href="../index.html#kontakt" onclick="toggleMobileNav()" data-pl="KONTAKT" data-en="CONTACT">KONTAKT</a>
+  <div class="mobile-lang">
+    <button class="lang-btn" onclick="setLang('pl'); toggleMobileNav()">PL</button>
+    <button class="lang-btn" onclick="setLang('en'); toggleMobileNav()">EN</button>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-label">X-Tire Blog</div>
+  <h1>AKTUAL<span>NOŚCI</span></h1>
+  <p>Testy terenowe, porady montażu, premiery produktów i aktualności ze świata wkładek rowerowych.</p>
+</section>
+
+<!-- CATEGORIES -->
+<div class="categories-bar">
+  <button class="cat-btn active" onclick="filterCat(this, 'all')">Wszystkie</button>
+  <button class="cat-btn" onclick="filterCat(this, 'testy')">Testy</button>
+  <button class="cat-btn" onclick="filterCat(this, 'produkty')">Produkty</button>
+  <button class="cat-btn" onclick="filterCat(this, 'porady')">Porady</button>
+  <button class="cat-btn" onclick="filterCat(this, 'emtb')">E-MTB</button>
+</div>
+
+<!-- FEATURED ARTICLE -->
+<section class="featured-section">
+  <div class="featured-label">Wyróżniony artykuł</div>
+  <a href="x-tire-trail-premiera/index.html" class="featured-card" data-cat="produkty">
+    <div class="featured-img">
+      <img src="../assets/hero.jpg" alt="X-Tire Trail — Premiera" loading="lazy" />
+      <span class="featured-badge">Nowość</span>
+    </div>
+    <div class="featured-content">
+      <div class="featured-meta">
+        <span class="featured-cat">Produkty</span>
+        <span class="featured-date">15 marca 2026</span>
       </div>
-      <button class="btn-cart snipcart-checkout">🛒 <span data-pl="KOSZYK" data-en="CART">KOSZYK</span> <span class="snipcart-items-count"></span></button>
-      <a href="index.html#produkty" class="btn-buy" data-pl="KUP TERAZ" data-en="BUY NOW">KUP TERAZ</a>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobileNav" onclick="toggleMobileNav()">
-        <span></span><span></span><span></span>
-      </button>
+      <h2>X-TIRE TRAIL — PREMIERA POLSKIEJ WKŁADKI ROWEROWEJ</h2>
+      <p>Polska innowacja wchodzi na rynek MTB. X-Tire Trail to wkładka z materiału przemysłowej klasy, która chroni obręcze i pozwala jeździć z niższym ciśnieniem. Sprawdzamy co potrafi.</p>
+      <div class="featured-author">
+        <div class="author-avatar">XT</div>
+        <div class="author-info">
+          <div class="author-name">Zespół X-Tire</div>
+          <div class="author-role">Redakcja · 8 min czytania</div>
+        </div>
+      </div>
+      <span class="btn-read">Czytaj więcej →</span>
     </div>
-  </nav>
-  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true">
-    <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
-    <a href="index.html#technologia" onclick="toggleMobileNav()">TECHNOLOGIA</a>
-    <a href="index.html#produkty" onclick="toggleMobileNav()">PRODUKTY</a>
-    <a href="news.html" onclick="toggleMobileNav()">AKTUALNOŚCI</a>
-    <a href="kontakt.html" onclick="toggleMobileNav()">KONTAKT</a>
-  </div>
+  </a>
+</section>
 
-  <div class="page-hero">
-    <div class="label" data-pl="Blog & Aktualności" data-en="Blog & News">Blog & Aktualności</div>
-    <h1 data-pl="AKTUALNOŚCI" data-en="NEWS">AKTUALNOŚCI</h1>
+<!-- ARTICLES GRID -->
+<section class="articles-section">
+  <div class="section-header">
+    <h2 class="section-title">WSZYSTKIE <span>ARTYKUŁY</span></h2>
   </div>
+  <div class="articles-grid" id="articles-grid">
 
-  <section class="news-section">
-    <div class="news-grid">
-      <a class="news-card" href="aktualnosci/x-tire-trail-premiera/index.html">
-        <div class="news-card-img"><img src="assets/hero.jpg" alt="Premiera X-Tire Trail" loading="lazy" /></div>
-        <div class="news-card-body">
-          <div class="news-card-cat" data-pl="Premiera" data-en="Launch">Premiera</div>
-          <div class="news-card-title" data-pl="X-Tire Trail — oficjalna premiera" data-en="X-Tire Trail — official launch">X-Tire Trail — oficjalna premiera</div>
-          <div class="news-card-excerpt" data-pl="Przedstawiamy X-Tire Trail — wszechstronną wkładkę dla rowerzystów trail i enduro. Sprawdź co ją wyróżnia." data-en="Introducing X-Tire Trail — a versatile insert for trail and enduro riders. See what makes it stand out.">Przedstawiamy X-Tire Trail — wszechstronną wkładkę dla rowerzystów trail i enduro.</div>
-          <div class="news-card-meta"><span>📅 Marzec 2026</span><span>⏱ 5 min</span></div>
+    <!-- Artykuł 1 -->
+    <a href="sezon-enduro-2026/index.html" class="article-card" data-cat="testy">
+      <div class="article-card-img">
+        <img src="../assets/hero2.jpg" alt="Sezon Enduro 2026" loading="lazy" />
+        <span class="article-card-cat">Testy</span>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-card-date">8 marca 2026</span>
+          <span class="article-card-read">6 min</span>
         </div>
-      </a>
-      <a class="news-card" href="aktualnosci/sezon-enduro-2026/index.html">
-        <div class="news-card-img"><img src="assets/hero2.jpg" alt="Sezon Enduro 2026" loading="lazy" /></div>
-        <div class="news-card-body">
-          <div class="news-card-cat" data-pl="Test" data-en="Test">Test</div>
-          <div class="news-card-title" data-pl="Sezon Enduro 2026 — 800 km z X-Tire" data-en="Enduro Season 2026 — 800 km with X-Tire">Sezon Enduro 2026 — 800 km z X-Tire</div>
-          <div class="news-card-excerpt" data-pl="Pełny sezon na wkładkach X-Tire. Jak sprawdziły się w najtrudniejszych warunkach? Szczery raport testera." data-en="A full season on X-Tire inserts. How did they perform in the toughest conditions? An honest tester's report.">Pełny sezon na wkładkach X-Tire. Jak sprawdziły się w najtrudniejszych warunkach?</div>
-          <div class="news-card-meta"><span>📅 Luty 2026</span><span>⏱ 8 min</span></div>
+        <h3>SEZON ENDURO 2026 — 800 KM Z X-TIRE</h3>
+        <p>Piotr W. przetestował X-Tire Trail przez cały sezon enduro. Zero przebić, zero uszkodzonych obręczy. Szczegółowy raport z testów.</p>
+        <div class="article-card-footer">
+          <span class="article-card-author"><strong>Piotr W.</strong> · Enduro</span>
+          <span class="btn-read-sm">Czytaj →</span>
         </div>
-      </a>
-      <a class="news-card" href="aktualnosci/dlaczego-emtb-wkladki/index.html">
-        <div class="news-card-img"><img src="assets/insert_grey.jpg" alt="E-MTB i wkładki" loading="lazy" /></div>
-        <div class="news-card-body">
-          <div class="news-card-cat" data-pl="Poradnik" data-en="Guide">Poradnik</div>
-          <div class="news-card-title" data-pl="Dlaczego E-MTB potrzebuje wkładek?" data-en="Why does E-MTB need inserts?">Dlaczego E-MTB potrzebuje wkładek?</div>
-          <div class="news-card-excerpt" data-pl="E-bike waży dwa razy więcej niż standardowy MTB. Co to oznacza dla Twoich obręczy i jak X-Tire rozwiązuje ten problem." data-en="An e-bike weighs twice as much as a standard MTB. What does this mean for your rims and how X-Tire solves this.">E-bike waży dwa razy więcej niż standardowy MTB. Co to oznacza dla Twoich obręczy?</div>
-          <div class="news-card-meta"><span>📅 Styczeń 2026</span><span>⏱ 6 min</span></div>
+      </div>
+    </a>
+
+    <!-- Artykuł 2 -->
+    <a href="dlaczego-emtb-wkladki/index.html" class="article-card" data-cat="emtb">
+      <div class="article-card-img">
+        <img src="../assets/insert_grey.jpg" alt="E-MTB i wkładki rowerowe" loading="lazy" />
+        <span class="article-card-cat">E-MTB</span>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-card-date">1 marca 2026</span>
+          <span class="article-card-read">5 min</span>
         </div>
-      </a>
-      <a class="news-card" href="aktualnosci/jak-zamontowac-x-tire/index.html">
-        <div class="news-card-img"><img src="assets/insert_red.jpg" alt="Montaż X-Tire" loading="lazy" /></div>
-        <div class="news-card-body">
-          <div class="news-card-cat" data-pl="Instrukcja" data-en="How-to">Instrukcja</div>
-          <div class="news-card-title" data-pl="Jak zamontować X-Tire w 20 minut?" data-en="How to install X-Tire in 20 minutes?">Jak zamontować X-Tire w 20 minut?</div>
-          <div class="news-card-excerpt" data-pl="Krok po kroku — od zdjęcia opony po pierwsze pompowanie. Bez specjalistycznych narzędzi, bez warsztatu." data-en="Step by step — from removing the tire to the first pump. No special tools, no workshop needed.">Krok po kroku — od zdjęcia opony po pierwsze pompowanie. Bez specjalistycznych narzędzi.</div>
-          <div class="news-card-meta"><span>📅 Grudzień 2025</span><span>⏱ 4 min</span></div>
+        <h3>DLACZEGO E-MTB POTRZEBUJE WKŁADEK BARDZIEJ NIŻ KLASYCZNY ROWER</h3>
+        <p>Większa masa, wyższe prędkości, mocniejsze uderzenia. Marek K. wyjaśnia dlaczego wkładka to must-have dla każdego elektrycznego rowerzysty.</p>
+        <div class="article-card-footer">
+          <span class="article-card-author"><strong>Marek K.</strong> · E-MTB</span>
+          <span class="btn-read-sm">Czytaj →</span>
         </div>
-      </a>
-      <a class="news-card" href="aktualnosci/x-tire-enduro-pro/index.html">
-        <div class="news-card-img"><img src="assets/insert3.jpg" alt="X-Tire Enduro Pro" loading="lazy" /></div>
-        <div class="news-card-body">
-          <div class="news-card-cat" data-pl="Produkt" data-en="Product">Produkt</div>
-          <div class="news-card-title" data-pl="X-Tire Enduro Pro — dla ekstremalnych tras" data-en="X-Tire Enduro Pro — for extreme trails">X-Tire Enduro Pro — dla ekstremalnych tras</div>
-          <div class="news-card-excerpt" data-pl="Wzmocniona wersja naszej flagowej wkładki. Więcej materiału, więcej ochrony, ta sama lekkość montażu." data-en="Reinforced version of our flagship insert. More material, more protection, same ease of installation.">Wzmocniona wersja naszej flagowej wkładki. Więcej materiału, więcej ochrony.</div>
-          <div class="news-card-meta"><span>📅 Listopad 2025</span><span>⏱ 5 min</span></div>
+      </div>
+    </a>
+
+    <!-- Artykuł 3 -->
+    <a href="jak-zamontowac-x-tire/index.html" class="article-card" data-cat="porady">
+      <div class="article-card-img">
+        <img src="../assets/insert_red.jpg" alt="Montaż wkładki X-Tire" loading="lazy" />
+        <span class="article-card-cat">Porady</span>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-card-date">22 lutego 2026</span>
+          <span class="article-card-read">4 min</span>
         </div>
-      </a>
-      <a class="news-card" href="aktualnosci/cisnienie-z-wkladka/index.html">
-        <div class="news-card-img"><img src="assets/hero.jpg" alt="Ciśnienie z wkładką" loading="lazy" /></div>
-        <div class="news-card-body">
-          <div class="news-card-cat" data-pl="Poradnik" data-en="Guide">Poradnik</div>
-          <div class="news-card-title" data-pl="Jakie ciśnienie z wkładką X-Tire?" data-en="What pressure with X-Tire insert?">Jakie ciśnienie z wkładką X-Tire?</div>
-          <div class="news-card-excerpt" data-pl="Optymalne ciśnienie zależy od wagi rowerzysty, terenu i opony. Podajemy konkretne wartości startowe dla każdej dyscypliny." data-en="Optimal pressure depends on rider weight, terrain and tire. We provide specific starting values for each discipline.">Optymalne ciśnienie zależy od wagi rowerzysty, terenu i opony. Konkretne wartości.</div>
-          <div class="news-card-meta"><span>📅 Październik 2025</span><span>⏱ 3 min</span></div>
+        <h3>JAK ZAMONTOWAĆ X-TIRE W 20 MINUT — KROK PO KROKU</h3>
+        <p>Kompletny przewodnik montażu wkładki X-Tire. Potrzebujesz tylko łyżek do opon i 20 minut. Bez specjalistycznych narzędzi.</p>
+        <div class="article-card-footer">
+          <span class="article-card-author"><strong>Anna J.</strong> · Instruktorka MTB</span>
+          <span class="btn-read-sm">Czytaj →</span>
         </div>
-      </a>
+      </div>
+    </a>
+
+    <!-- Artykuł 4 -->
+    <a href="x-tire-enduro-pro/index.html" class="article-card" data-cat="produkty">
+      <div class="article-card-img">
+        <img src="../assets/insert3.jpg" alt="X-Tire Enduro Pro" loading="lazy" />
+        <span class="article-card-cat">Produkty</span>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-card-date">14 lutego 2026</span>
+          <span class="article-card-read">5 min</span>
+        </div>
+        <h3>X-TIRE ENDURO PRO — MAKSYMALNA OCHRONA DLA NAJTRUDNIEJSZYCH TRAS</h3>
+        <p>Nowa wersja wkładki z wzmocnioną warstwą zewnętrzną. Zaprojektowana z myślą o enduro i DH. Sprawdzamy co ją wyróżnia.</p>
+        <div class="article-card-footer">
+          <span class="article-card-author"><strong>Zespół X-Tire</strong></span>
+          <span class="btn-read-sm">Czytaj →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Artykuł 5 -->
+    <a href="cisnienie-z-wkladka/index.html" class="article-card" data-cat="porady">
+      <div class="article-card-img">
+        <img src="../assets/hero.jpg" alt="Ciśnienie w oponie z wkładką" loading="lazy" />
+        <span class="article-card-cat">Porady</span>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-card-date">5 lutego 2026</span>
+          <span class="article-card-read">4 min</span>
+        </div>
+        <h3>JAKIE CIŚNIENIE Z WKŁADKĄ X-TIRE? KOMPLETNY PRZEWODNIK</h3>
+        <p>Wkładka pozwala jechać z niższym ciśnieniem — ale ile to znaczy? Tabela zalecanych ciśnień dla różnych dyscyplin i wagi rowerzysty.</p>
+        <div class="article-card-footer">
+          <span class="article-card-author"><strong>Zespół X-Tire</strong></span>
+          <span class="btn-read-sm">Czytaj →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Artykuł 6 -->
+    <a href="x-tire-gravel-zapowiedz/index.html" class="article-card" data-cat="produkty">
+      <div class="article-card-img">
+        <img src="../assets/hero2.jpg" alt="X-Tire Gravel zapowiedź" loading="lazy" />
+        <span class="article-card-cat">Produkty</span>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-card-date">28 stycznia 2026</span>
+          <span class="article-card-read">3 min</span>
+        </div>
+        <h3>X-TIRE GRAVEL — ZAPOWIEDŹ LEKKIEJ WKŁADKI DO GRAVELA I XC</h3>
+        <p>Pracujemy nad lekką wersją wkładki dla rowerzystów gravel i XC. Pierwsze szczegóły, zdjęcia prototypu i planowana data premiery.</p>
+        <div class="article-card-footer">
+          <span class="article-card-author"><strong>Zespół X-Tire</strong></span>
+          <span class="btn-read-sm">Czytaj →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <h2>BĄDŹ NA <span>BIEŻĄCO</span></h2>
+    <p>Zapisz się na newsletter i otrzymuj informacje o nowych produktach, testach i poradach jako pierwszy.</p>
+    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input type="email" placeholder="Twój adres email" required aria-label="Adres email" />
+      <button type="submit">Zapisz się</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="../assets/xtire.svg" alt="X-Tire" width="56" height="56" />
+        <p>Polskie wkładki rowerowe nowej generacji. Materiał przemysłowej klasy, maksymalna ochrona obręczy, trwałość na lata.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sklep</h4>
+        <a href="../index.html#produkty">X-Tire Trail</a>
+        <a href="../index.html#produkty">X-Tire Enduro Pro</a>
+        <a href="../index.html#produkty">X-Tire Gravel (wkrótce)</a>
+      </div>
+      <div class="footer-col">
+        <h4>Informacje</h4>
+        <a href="news.html">Aktualności</a>
+        <a href="../index.html#technologia">Technologia</a>
+        <a href="../index.html#kontakt">Kontakt</a>
+        <a href="#">FAQ</a>
+        <a href="#">Dostawa i Płatności</a>
+      </div>
+      <div class="footer-col">
+        <h4>Prawne</h4>
+        <a href="#">Regulamin</a>
+        <a href="#">Polityka Prywatności</a>
+        <a href="#">Cookies</a>
+        <a href="#">Zwroty</a>
+      </div>
     </div>
-  </section>
-
-  <footer>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 X-Tire. <span data-pl="Wszelkie prawa zastrzeżone." data-en="All rights reserved.">Wszelkie prawa zastrzeżone.</span></div>
+      <span class="footer-copy">© 2026 X-Tire. Wszelkie prawa zastrzeżone.</span>
       <div class="footer-legal">
-        <a href="regulamin.html">Regulamin</a>
-        <a href="polityka.html">Polityka Prywatności</a>
+        <a href="#">Regulamin</a>
+        <a href="#">Polityka Prywatności</a>
+        <a href="#">Cookies</a>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <div hidden id="snipcart" data-api-key="YOUR_PUBLIC_API_KEY" data-currency="pln"></div>
-  <script async src="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.js"></script>
-  <script>
-    let currentLang = localStorage.getItem('xtire-lang') || 'pl';
-    function setLang(lang) {
-      currentLang = lang;
-      localStorage.setItem('xtire-lang', lang);
-      document.querySelectorAll('[data-pl]').forEach(el => {
-        const text = el.getAttribute('data-' + lang);
-        if (text && el.children.length === 0) el.textContent = text;
-      });
-      document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      document.documentElement.lang = lang;
-    }
-    function toggleMobileNav() {
-      const nav = document.getElementById('mobileNav');
-      const btn = document.getElementById('hamburgerBtn');
-      const isOpen = nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    }
-    document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
-  </script>
+<!-- SNIPCART -->
+<div hidden id="snipcart" data-api-key="YOUR_PUBLIC_API_KEY" data-currency="pln"></div>
+<script async src="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.js"></script>
+
+<script>
+  // LANGUAGE SWITCHER
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('xtire-lang', lang);
+    document.querySelectorAll('[data-pl]').forEach(el => {
+      el.textContent = lang === 'pl' ? el.dataset.pl : el.dataset.en;
+    });
+    document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+  const savedLang = localStorage.getItem('xtire-lang') || 'pl';
+  setLang(savedLang);
+
+  // MOBILE NAV
+  function toggleMobileNav() {
+    const nav = document.getElementById('mobileNav');
+    const btn = document.getElementById('hamburger-btn');
+    const isOpen = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  // CATEGORY FILTER
+  function filterCat(btn, cat) {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.article-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+    });
+  }
+
+  // NEWSLETTER
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Zapisano! ✓';
+    btn.style.background = '#4ade80';
+    e.target.reset();
+    setTimeout(() => { btn.textContent = 'Zapisz się'; btn.style.background = ''; }, 3000);
+  }
+</script>
 </body>
 </html>
