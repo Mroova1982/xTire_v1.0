@@ -236,27 +236,6 @@
       0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
     }
 
-    /* MAP */
-    .map-card {
-      background: var(--dark3); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius); overflow: hidden;
-    }
-    .map-card iframe {
-      width: 100%; height: 220px; display: block; border: none;
-      filter: grayscale(1) invert(1) contrast(0.8) brightness(0.7);
-    }
-    .map-card-footer {
-      padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;
-      gap: 8px;
-    }
-    .map-card-footer p { font-size: 13px; color: var(--gray); }
-    .map-card-footer a {
-      font-family: var(--font-head); font-size: 12px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--lime); white-space: nowrap; flex-shrink: 0;
-    }
-    .map-card-footer a:hover { text-decoration: underline; }
-
     /* TOPICS */
     .topics-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px;
@@ -483,9 +462,7 @@
         </div>
         <p>
           <strong>'Moronet'</strong><br />
-          Oprogramowanie Użytkowe Tomasz Mrowiec<br />
-          ul. Lubczykowa 10<br />
-          81-589 Gdynia<br /><br />
+          Oprogramowanie Użytkowe Tomasz Mrowiec<br /><br />
           NIP: 5862100044<br />
           REGON: 220498751
         </p>
@@ -504,20 +481,16 @@
         </p>
       </div>
 
-      <!-- MAPA -->
-      <div class="map-card">
-        <iframe
-          src="https://www.openstreetmap.org/export/embed.html?bbox=18.5200%2C54.4900%2C18.5600%2C54.5200&layer=mapnik&marker=54.5050%2C18.5400"
-          title="Lokalizacja X-Tire — Gdynia"
-          loading="lazy"
-          allowfullscreen
-        ></iframe>
-        <div class="map-card-footer">
-          <p>ul. Lubczykowa 10, Gdynia</p>
-          <a href="https://www.openstreetmap.org/?mlat=54.505&mlon=18.540#map=15/54.505/18.540" target="_blank" rel="noopener">
-            Otwórz mapę →
-          </a>
+      <!-- SKLEP ONLINE -->
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-card-icon">🛒</div>
+          <div class="info-card-title">Sprzedaż online</div>
         </div>
+        <p>
+          Sprzedaż prowadzimy <strong>wyłącznie przez internet</strong>. Nie posiadamy sklepu stacjonarnego ani punktu odbioru osobistego.<br /><br />
+          Zamówienia realizujemy na terenie Polski i wybranych krajów UE.
+        </p>
       </div>
 
     </aside>
