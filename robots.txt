@@ -1,10 +1,6 @@
+# X-Tire — robots.txt
+# Strona w trakcie budowy — indeksowanie tymczasowo zablokowane.
+# Aby odblokować, zastąp "Disallow: /" regułami docelowymi.
+
 User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://x-tire.pl/sitemap.xml
-
-# Blokuj pliki techniczne
-Disallow: /assets/
-Disallow: /*.css$
-Disallow: /*.js$
+Disallow: /
